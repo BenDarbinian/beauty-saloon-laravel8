@@ -11,18 +11,18 @@ class RecordGController extends Controller
 {
     public function create()
     {
-        return view('record_guest.create');
+        return view('auth.recordg');
     }
 
-    public function store()
+    public function store(Request $request)
     {
         request()->validate([
             'name' => 'max:15|min:2',
             'phone_number' => Rule::unique('users', 'phone_number')
         ]);
         $recordg = new RecordG;
-        $recordg->name = request()->name;
-        $recordg->phone_number = request()->phone_number;
+        $recordg->name = $request->name;
+        $recordg->phone_number = $request->phone_number;
         $recordg->status_id = 1;
         $recordg->save();
 

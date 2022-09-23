@@ -20,17 +20,15 @@
     </section>
 
     <section class="services wrapper">
-        <div class="container">
             <div class="cards">
                 @foreach ($categories as $category)
                 <a href="#{{$category->slug}}">
-                    <div style="background-image: url(./images/{{$category->slug}}.jpg);">
+                    <div style="background-image: url(../images/{{$category->slug}}.jpg);">
                         <h1 class="name1">{{$category->name}}</h1>
                     </div>
                 </a>
                 @endforeach
             </div>
-        </div>
     </section>
     <section id='services' class="sevices">
         @foreach ($categories as $category)

@@ -54,15 +54,6 @@
                                         <label class="form-label" name="password_confirmation" for="password_confirmation">Повторите Пароль еще раз</label>
                                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password_confirmation" required autocomplete="current-password" placeholder="••••••••" />
 
-                                    </div>
-                                    <div id="captcha" name="captcha" class="g-recaptcha" data-sitekey="6LcW5mcgAAAAAGaW4JCvtxJ7I5WEHBiw81kW9bVN"  required autocomplete="current-captcha">я не робот</div>
-
-                                    <!-- элемент для вывода ошибок -->
-                                    <div class="text-danger" id="recaptchaError"></div>
-
-                                    <!-- js-скрипт гугл капчи -->
-                                    <script src='https://www.google.com/recaptcha/api.js'></script>
-
                                     <div class="d-flex justify-content-center mt-3">
                                         <button type="submit" class="btn btn-outline-info btn-block btn-lg gradient-custom-4">Зарегистрироваться</button>
                                     </div>

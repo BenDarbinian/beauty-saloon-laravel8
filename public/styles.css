@@ -49,9 +49,7 @@ body {
     box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
-.header-wrapper {
-    height: 70px;
-}
+
 
 .wrapper {
     height: 100%;
@@ -168,7 +166,7 @@ a {
 }
 
 .backgroundNav {
-    background-image: url(images/вумен.jpg);
+    background-image: url(../images/вумен.jpg);
     background-size: cover;
     background-position: bottom;
     height: 100vh;

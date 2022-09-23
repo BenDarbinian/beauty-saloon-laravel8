@@ -38,9 +38,5 @@ class User extends Authenticatable
     $user = User::factory()->create();
 }
 
-    public function setPasswordAttribute($password)
-    {
-        $this->attributes['password'] = bcrypt($password);
-    }
 
 }

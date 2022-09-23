@@ -5,36 +5,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://www.google.com/recaptcha/api.js?render=KEY_SITE_V3"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="images/letter-y.png" type="image/png">
-    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <script src="{{ mix('js/app.js') }}" defer></script>
     <title>Ясмин Салон Красоты</title>
 </head>
 
 <body>
-    <header class="header" style="background-color: #6b6bb3;">
-        <nav class="navbar header-wrapper">
+    <!-- <header class="header" style="background-color: #6b6bb3;">
+        <nav class="flex justify-between  navbar header-wrapper">
             <div class="logowords">
-                <a class="navbar-brand logoButton" href="/"><span class="logotext">YASMIN</span></a>
+                <a class="logoButton" href="/">YASMIN</a>
             </div>
-            <div class="align-items-baseline flex-row nav-icon">
+            <div class="nav-icon">
                 @auth
                 <span class="hello logotext1 mr-4">Добро пожаловать, {{auth()->user()->name}}!</span>
                 @endauth
-                <a class="navbar-brand logoNavButton"><img class="logoimg2" src="images/menu-button-of-three-horizontal-lines.png"></a>
+                <a class="logoNavButton"><img class="logoimg2" src="images/menu-button-of-three-horizontal-lines.png"></a>
+            </div>
+        </nav>
+    </header> -->
+    <header class="fixed z-10 drop-shadow-lg w-full h-16 bg-[#6b6bb3] flex items-center">
+        <nav class="px-2 sm:px-2 md:px-4 lg:px-8 xl:px-32 w-full flex justify-between items-center">
+            <a href="/" class="font-sans font-bold text-4xl uppercase text-white transition ease in out hover:scale-110 duration-100">Yasmin</a>
+            <div class="flex justify-end">
+                <a class="NavButton pr-1 cursor-pointer transition ease in out hover:scale-110 duration-100"><img class="logoimg2" src="images/menu-button-of-three-horizontal-lines.png"></a>
             </div>
         </nav>
     </header>
     <main>
-        <div class="fullScreenNav">
+        <!-- <div class="fullScreenNav">
             <div class="backdrop"></div>
             <ul class="navMenu">
                 @guest
@@ -62,13 +68,39 @@
 
 
             </ul>
+        </div> -->
+        <div class="fullScreenNav">
+            <div class="backdrop"></div>
+            <ul class="navMenu">
+                @guest
+                <li class="navMenuLi w-80 text-center mb-6 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase"><a href="register">Sign up</a></li>
+                <li class="navMenuLi w-80 text-center mb-6 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase"><a href="login">sign in</a></li>
+                @endguest
+                @auth
+                <li class="navMenuLi w-80 text-center mb-6 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase"><a href="account">account</a></li>
+                @endauth
+                <li class="navMenuLi w-80 text-center mb-6 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase"><a href="/#map">search on map</a></li>
+                <li class="navMenuLi w-80 text-center mb-6 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase"><a href="/#categories">categories</a></li>
+                @guest
+                <li class="navMenuLi w-80 text-center mb-6 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase"><a href="/record_guest">record</a></li>
+                @endguest
+                @auth
+                <li class="navMenuLi w-80 text-center mb-6 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase"><a href="record">record</a></li>
+                <li class="navMenuLi w-80 text-center mb-6 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase">
+                    <form action="/logout" method="POST">
+                        @csrf
+                        <button type="submit" class="text-white hover:text-[#bde7f5] text-4xl uppercase w-full">logout</button>
+                    </form>
+                </li>
+                @endauth
+            </ul>
         </div>
         <div class="test7">
             {{$slot}}
         </div>
 
         @if (session()->has('success'))
-    
+
         <script>
             let a = "{{session('success')}}"
             Swal.fire({
@@ -83,8 +115,8 @@
         <!--{{session('success')}}-->
         @endif
     </main>
-    <script src="./js/app.js"></script>
-    <script src="script.js"></script>
+    <!-- <script src="./js/app.js"></script> -->
+    <script async src="script.js"></script>
     <!-- Footer -->
     <footer class="text-center text-white footer" style="background-color: #b6b6ff;">
         <!-- Grid container -->
