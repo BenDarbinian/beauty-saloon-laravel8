@@ -1,5 +1,5 @@
-<x-layout>
+<x-guest-layout>
     <div id='app'>
-        <test-component></test-component>
+        <record-component></record-component>
     </div>
-</x-layout>
+</x-guent-layout>

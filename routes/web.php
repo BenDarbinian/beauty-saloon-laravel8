@@ -30,8 +30,6 @@ Route::get('account', [AccountController::class, 'account'])->middleware('auth')
 Route::get('record', [RecordController::class, 'create'])->middleware('auth');
 #Route::post('record', [RecordController::class, 'store'])->middleware('auth');
 
-
-
 Route::get('record_guest', [RecordGController::class, 'create'])->middleware('guest');
 Route::post('record_guest', [RecordGController::class, 'store'])->middleware('guest')->name('recordg');
  

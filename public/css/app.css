@@ -1076,6 +1076,10 @@ select {
 .bg-\[\#6b6bb3\]\/75 {
   background-color: rgb(107 107 179 / 0.75);
 }
+.bg-\[\#bde7f5\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(189 231 245 / var(--tw-bg-opacity));
+}
 .fill-current {
   fill: currentColor;
 }
@@ -1926,11 +1930,6 @@ a {
     /*color:#3b3b74;*/
     margin-top: 100px;
     margin-bottom: 30px;
-}
-.test10 {
-    position: inherit;
-    margin-top: 70px;
-    height: 100%;
 }
 .test11 {
     color: #ffffff;

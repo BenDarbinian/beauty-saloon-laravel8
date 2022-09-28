@@ -22,14 +22,14 @@
                             </v-chip>
                         </v-chip-group>
                     </v-sheet>
-                    {{checkedCat}}
+                    {{ checkedCat }}
                     <v-card-text
                         v-for="category in categories"
                         :key="category.id"
                         v-if="checkedCat === category.id"
                     >
                         <h2 class="text-h6 mb-2">{{ category.name }}</h2>
-                        {{formData.checkedNames}}
+                        {{ formData.checkedNames }}
                         <v-chip-group
                             v-model="formData.checkedNames"
                             active-class="deep-purple--text text--accent-4"
@@ -53,7 +53,7 @@
                             </v-chip>
                         </v-chip-group>
                         <v-row justify="space-around">
-                            {{formData.date}}
+                            {{ formData.date }}
                             <v-col>
                                 <v-date-picker
                                     v-model="formData.date"
@@ -139,7 +139,12 @@ export default {
             } else false;
             if (this.formData.date == new Date().toISOString().slice(0, 10)) {
                 if (
-                    i.slice(0, 5) < new Date().toLocaleTimeString().slice(0, -3)
+                    i.slice(0, 5) <
+                    new Date()
+                        .toLocaleTimeString("en-US", {
+                            hour12: false,
+                        })
+                        .slice(0, -3)
                 ) {
                     if (this.formData.time == i.slice(0, 5)) {
                         this.formData.time = null;
@@ -194,7 +199,7 @@ export default {
                     return true;
                 }
                 let h = 0;
-                let m = Number(x.Stime);
+                let m = Number(x.Stime) + Number(x.time.slice(3, 5));
                 if (m >= 60) {
                     while (m >= 60) {
                         m -= 60;
