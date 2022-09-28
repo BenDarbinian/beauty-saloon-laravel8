@@ -6076,6 +6076,14 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -8748,9 +8756,21 @@ var render = function () {
     "v-app",
     { staticStyle: { "background-color": "#b6b6ff" } },
     [
+      _c("div", { staticClass: "text-center mt-5" }, [
+        _c(
+          "a",
+          {
+            staticClass: "font-sans font-bold text-4xl uppercase text-gray-900",
+            staticStyle: { color: "#111827" },
+            attrs: { href: "/" },
+          },
+          [_vm._v("Yasmin")]
+        ),
+      ]),
+      _vm._v(" "),
       _c(
         "v-card",
-        { staticClass: "mx-auto test", attrs: { "max-width": "1024" } },
+        { staticClass: "mx-auto mt-5", attrs: { "max-width": "900" } },
         [
           _c(
             "v-toolbar",
@@ -8863,6 +8883,7 @@ var render = function () {
                       [
                         _c(
                           "v-col",
+                          { staticClass: "flex" },
                           [
                             _c("v-date-picker", {
                               staticClass: "mx-auto test2",
@@ -8871,7 +8892,6 @@ var render = function () {
                                 "max-width": "600",
                                 max: _vm.borderDates[1],
                                 disabled: _vm.disDate,
-                                landscape: "",
                                 locale: "ru-RU",
                                 color: "deep-purple lighten-3",
                               },
@@ -8893,7 +8913,7 @@ var render = function () {
                             _c(
                               "v-chip-group",
                               {
-                                staticClass: "test2 test3",
+                                staticClass: "mt-5",
                                 attrs: {
                                   "active-class":
                                     "deep-purple--text text--accent-4",

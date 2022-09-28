@@ -1076,10 +1076,6 @@ select {
 .bg-\[\#6b6bb3\]\/75 {
   background-color: rgb(107 107 179 / 0.75);
 }
-.bg-\[\#bde7f5\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(189 231 245 / var(--tw-bg-opacity));
-}
 .fill-current {
   fill: currentColor;
 }

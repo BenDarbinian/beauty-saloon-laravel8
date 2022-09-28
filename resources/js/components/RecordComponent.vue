@@ -1,6 +1,15 @@
 <template>
     <v-app style="background-color: #b6b6ff">
-        <v-card class="mx-auto test" max-width="1024">
+        <div class="text-center mt-5">
+            <a
+                href="/"
+                class="font-sans font-bold text-4xl uppercase text-gray-900"
+                style="color: #111827"
+                >Yasmin</a
+            >
+        </div>
+
+        <v-card class="mx-auto mt-5" max-width="900">
             <v-toolbar flat color="#6b6bb3" dark>
                 <v-toolbar-title>Выбор услуг</v-toolbar-title>
             </v-toolbar>
@@ -49,7 +58,7 @@
                     </v-chip>
                 </v-chip-group>
                 <v-row justify="space-around">
-                    <v-col>
+                    <v-col class="flex">
                         <v-date-picker
                             v-model="formData.date"
                             :min="borderDates[0]"
@@ -57,14 +66,13 @@
                             max-width="600"
                             :max="borderDates[1]"
                             :disabled="disDate"
-                            landscape
                             locale="ru-RU"
                             color="deep-purple lighten-3"
                         ></v-date-picker>
                     </v-col>
-                    <v-col>
+                    <v-col >
                         <v-chip-group
-                            class="test2 test3"
+                            class="mt-5"
                             v-model="formData.time"
                             active-class="deep-purple--text text--accent-4"
                             column
