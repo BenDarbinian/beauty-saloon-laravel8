@@ -31,8 +31,8 @@
                                         <td>{{$n}}</td>
                                         <td>{{$record->date}}</td>
                                         <td>{{$record->time}}</td>
-                                        <td>{{$record->Sprice}} рублей</td>
-                                        <td>{{$record->Stime}} минут</td>
+                                        <td>{{$record->sPrice}} рублей</td>
+                                        <td>{{$record->sTime}} минут</td>
                                         <td><p class="text-{{$record->Status->bootColor}}">{{$record->Status->name}}</p></td>
                                     </tr>
                                     <tr>

@@ -199,7 +199,7 @@ export default {
                     return true;
                 }
                 let h = 0;
-                let m = Number(x.Stime) + Number(x.time.slice(3, 5));
+                let m = Number(x.sTime) + Number(x.time.slice(3, 5));
                 if (m >= 60) {
                     while (m >= 60) {
                         m -= 60;

@@ -5776,7 +5776,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
           var _h = 0;
 
-          var _m = Number(_x2.Stime);
+          var _m = Number(_x2.sTime);
 
           if (_m >= 60) {
             while (_m >= 60) {
@@ -6204,7 +6204,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         try {
           for (_iterator.s(); !(_step = _iterator.n()).done;) {
             var record = _step.value;
-            recordDateArray.push([record.time, record.Stime]);
+            recordDateArray.push([record.time, record.sTime]);
           }
         } catch (err) {
           _iterator.e(err);
@@ -6563,7 +6563,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
           var _h = 0;
 
-          var _m = Number(_x2.Stime) + Number(_x2.time.slice(3, 5));
+          var _m = Number(_x2.sTime) + Number(_x2.time.slice(3, 5));
 
           if (_m >= 60) {
             while (_m >= 60) {
@@ -8270,13 +8270,13 @@ var render = function () {
                                           _vm._v(" "),
                                           _c("td", [
                                             _vm._v(
-                                              _vm._s(record.Sprice) + " рублей"
+                                              _vm._s(record.sPrice) + " рублей"
                                             ),
                                           ]),
                                           _vm._v(" "),
                                           _c("td", [
                                             _vm._v(
-                                              _vm._s(record.Stime) + " минут"
+                                              _vm._s(record.sTime) + " минут"
                                             ),
                                           ]),
                                           _vm._v(" "),
@@ -8549,14 +8549,14 @@ var render = function () {
                                               _vm._v(" "),
                                               _c("td", [
                                                 _vm._v(
-                                                  _vm._s(record.Sprice) +
+                                                  _vm._s(record.sPrice) +
                                                     " рублей"
                                                 ),
                                               ]),
                                               _vm._v(" "),
                                               _c("td", [
                                                 _vm._v(
-                                                  _vm._s(record.Stime) +
+                                                  _vm._s(record.sTime) +
                                                     " минут"
                                                 ),
                                               ]),

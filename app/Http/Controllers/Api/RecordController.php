@@ -41,8 +41,8 @@ class RecordController extends Controller
             $sumPrice += $serHis->Service->price;
             $sumMinutes += $serHis->Service->time;
         }
-        $record->Stime = $sumMinutes;
-        $record->Sprice = $sumPrice;
+        $record->sTime = $sumMinutes;
+        $record->sPrice = $sumPrice;
         $record->save();
 
         return [

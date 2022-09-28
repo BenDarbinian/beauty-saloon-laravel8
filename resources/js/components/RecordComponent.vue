@@ -221,7 +221,7 @@ export default {
                 for (let record of this.records.filter(
                     (records) => records.date == this.formData.date
                 )) {
-                    recordDateArray.push([record.time, record.Stime]);
+                    recordDateArray.push([record.time, record.sTime]);
                 }
                 for (let recordDate of recordDateArray) {
                     for (let element of a.filter(

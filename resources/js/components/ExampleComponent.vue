@@ -261,8 +261,8 @@
                                     <td>{{ record.phone_number }}</td>
                                     <td>{{ record.date }}</td>
                                     <td>{{ record.time }}</td>
-                                    <td>{{ record.Sprice }} рублей</td>
-                                    <td>{{ record.Stime }} минут</td>
+                                    <td>{{ record.sPrice }} рублей</td>
+                                    <td>{{ record.sTime }} минут</td>
                                     <td
                                         :class="
                                             statusColor(record.status.bootColor)
@@ -397,8 +397,8 @@
                                     <td>{{ record.phone_number }}</td>
                                     <td>{{ record.date }}</td>
                                     <td>{{ record.time }}</td>
-                                    <td>{{ record.Sprice }} рублей</td>
-                                    <td>{{ record.Stime }} минут</td>
+                                    <td>{{ record.sPrice }} рублей</td>
+                                    <td>{{ record.sTime }} минут</td>
                                     <td
                                         :class="
                                             statusColor(record.status.bootColor)
@@ -588,7 +588,7 @@ export default {
                     return true;
                 }
                 let h = 0;
-                let m = Number(x.Stime);
+                let m = Number(x.sTime);
                 if (m >= 60) {
                     while (m >= 60) {
                         m -= 60;

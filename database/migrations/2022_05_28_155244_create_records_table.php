@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('phone_number');
             $table->time('time');
             $table->date('date');
-            $table->integer('Sprice')->nullable();
-            $table->integer('Stime')->nullable();
+            $table->integer('sPrice')->nullable();
+            $table->integer('sTime')->nullable();
             $table->integer('status_id');
             $table->timestamps();
         });
