@@ -226,7 +226,7 @@ a {
 }
 
 .backdrop {
-    z-index: 9998;
+    z-index: 12;
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -255,8 +255,6 @@ a {
 }
 
 .navMenu {
-    margin: 0px;
-    padding: 0px;
     z-index: 9999;
     position: fixed;
 }

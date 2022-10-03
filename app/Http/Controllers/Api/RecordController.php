@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\RecordCollection;
 use App\Models\Category;
 use App\Models\Record;
 use App\Models\Service;
@@ -14,9 +15,9 @@ class RecordController extends Controller
 {
     public function index()
     {
-        return Record::where(
-            'status_id','<>', 'Отменена'
-        )->with(['status','servicehistory'])->get();
+        return RecordCollection::collection(Record::where(
+            'status_id','<>', 4
+        )->get());
 
 
         //return view('record.create');

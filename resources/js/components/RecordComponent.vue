@@ -1,109 +1,53 @@
 <template>
-    <v-app style="background-color: #b6b6ff">
-        <div class="text-center mt-5">
-            <a
-                href="/"
-                class="font-sans font-bold text-4xl uppercase text-gray-900"
-                style="color: #111827"
-                >Yasmin</a
-            >
-        </div>
-
+    <v-main style="background-color: #b6b6ff">
         <v-card class="mx-auto mt-5" max-width="900">
             <v-toolbar flat color="#6b6bb3" dark>
                 <v-toolbar-title>Выбор услуг</v-toolbar-title>
             </v-toolbar>
             <v-sheet class="d-flex justify-center py-1 px-1">
-                <v-chip-group
-                    mandatory
-                    v-model="checkedCat"
-                    active-class="deep-purple--text text--accent-4"
-                >
-                    <v-chip
-                        v-for="category in categories"
-                        :key="category.id"
-                        :id="category.id"
-                        :value="category.id"
-                    >
+                <v-chip-group column mandatory v-model="checkedCat" active-class="deep-purple--text text--accent-4">
+                    <v-chip v-for="category in categories" :key="category.id" :id="category.id" :value="category.id">
                         {{ category.name }}
                     </v-chip>
                 </v-chip-group>
             </v-sheet>
-            <v-card-text
-                v-for="category in categories"
-                :key="category.id"
-                v-if="checkedCat === category.id"
-            >
+            <v-card-text v-for="category in categories" :key="category.id" v-if="checkedCat === category.id">
                 <h2 class="text-h6 mb-2">{{ category.name }}</h2>
-                <v-chip-group
-                    v-model="formData.checkedNames"
-                    active-class="deep-purple--text text--accent-4"
-                    column
-                    multiple
-                    max="5"
-                >
-                    <v-chip
-                        v-for="service in services
-                            .filter(
-                                (services) =>
-                                    services.category_id == category.id
-                            )
-                            .sort(services.price)"
-                        outlined
-                        :key="service.id"
-                        :id="service.id"
-                        :value="service.id"
-                    >
+                <v-chip-group v-model="formData.checkedNames" active-class="deep-purple--text text--accent-4" column
+                    multiple max="5">
+                    <v-chip v-for="service in services
+                    .filter(
+                        (services) =>
+                            services.category_id == category.id
+                    )
+                    .sort(services.price)" outlined :key="service.id" :id="service.id" :value="service.id">
                         {{ service.name }}
                     </v-chip>
                 </v-chip-group>
                 <v-row justify="space-around">
-                    <v-col class="flex">
-                        <v-date-picker
-                            v-model="formData.date"
-                            :min="borderDates[0]"
-                            class="mx-auto test2"
-                            max-width="600"
-                            :max="borderDates[1]"
-                            :disabled="disDate"
-                            locale="ru-RU"
-                            color="deep-purple lighten-3"
-                        ></v-date-picker>
+                    <v-col class="flex" xs="12" sm="6" md="6">
+                        <v-date-picker v-model="formData.date" :min="borderDates[0]" class="mx-auto test2"
+                            max-width="600" :max="borderDates[1]" :disabled="disDate" locale="ru-RU"
+                            color="deep-purple lighten-3"></v-date-picker>
                     </v-col>
-                    <v-col >
-                        <v-chip-group
-                            class="mt-5"
-                            v-model="formData.time"
-                            active-class="deep-purple--text text--accent-4"
-                            column
-                            mandatory
-                        >
-                            <v-chip
-                                v-for="i in disTimeRe"
-                                :key="i[0].slice(0, 5)"
-                                :value="i[0].slice(0, 5)"
-                                :disabled="i[1]"
-                                >{{ i[0].slice(0, 5) }}
+                    <v-col xs="12" sm="6" md="6" lg="6">
+                        <v-chip-group class="md:mt-5 mt-3 ml-6" v-model="formData.time"
+                            active-class="deep-purple--text text--accent-4" column mandatory>
+                            <v-chip v-for="i in disTimeRe" :key="i[0].slice(0, 5)" :value="i[0].slice(0, 5)"
+                                :disabled="i[1]">{{ i[0].slice(0, 5) }}
                             </v-chip>
                         </v-chip-group>
                     </v-col>
                 </v-row>
                 <div class="text-center">
-                    <v-btn
-                        class="ma-2"
-                        :disabled="disRec"
-                        color="deep-purple--text text--accent-4"
-                        @click="CreateRecord()"
-                    >
+                    <v-btn class="ma-2" :disabled="disRec" color="deep-purple--text text--accent-4"
+                        @click="CreateRecord()">
                         Записаться
                     </v-btn>
                 </div>
             </v-card-text>
-            {{ checkedCat }}
-            {{ formData.checkedNames }}
-            {{ formData.date }}
         </v-card>
-    </v-app>
+    </v-main>
 </template>
 <script>
 import axios from "axios";
@@ -202,12 +146,11 @@ export default {
                 a.map((element) => (element[1] = true));
             } else {
                 a.map((element) => (element[1] = false));
-
                 if (
                     this.formData.date == new Date().toISOString().slice(0, 10)
                 ) {
                     a.map(
-                        (element) =>
+                        (element) => {
                             (element[1] =
                                 element[0].slice(0, 5) <
                                 new Date()
@@ -215,6 +158,10 @@ export default {
                                         hour12: false,
                                     })
                                     .slice(0, -3))
+                            if (this.formData.time == element[0].slice(0, 5)) {
+                                this.formData.time = null;
+                            }
+                        }
                     );
                 }
                 let recordDateArray = [["20:00:00", 0]];
@@ -233,7 +180,7 @@ export default {
                         );
                         if (
                             element[0].slice(0, 5) <=
-                                recordDate[0].slice(0, 5) &&
+                            recordDate[0].slice(0, 5) &&
                             elEndTime.slice(0, 5) > recordDate[0].slice(0, 5)
                         ) {
                             if (this.formData.time == element[0].slice(0, 5)) {
@@ -250,10 +197,13 @@ export default {
 
                             if (
                                 element[0].slice(0, 5) <
-                                    elEndTime.slice(0, 5) &&
+                                elEndTime.slice(0, 5) &&
                                 element[0].slice(0, 5) >
-                                    recordDate[0].slice(0, 5)
+                                recordDate[0].slice(0, 5)
                             ) {
+                                if (this.formData.time == element[0].slice(0, 5)) {
+                                    this.formData.time = null;
+                                }
                                 element[1] = true;
                             }
                         }
@@ -291,7 +241,7 @@ export default {
         fetch("/api/records")
             .then((response) => response.json())
             .then((records) => {
-                this.records = records;
+                this.records = records.data;
             });
         fetch("/api/categories")
             .then((response) => response.json())

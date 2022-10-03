@@ -744,6 +744,9 @@ select {
 .z-10 {
   z-index: 10;
 }
+.z-20 {
+  z-index: 20;
+}
 .m-1 {
   margin: 0.25rem;
 }
@@ -811,8 +814,8 @@ select {
 .mr-4 {
   margin-right: 1rem;
 }
-.mb-6 {
-  margin-bottom: 1.5rem;
+.mb-1 {
+  margin-bottom: 0.25rem;
 }
 .mt-6 {
   margin-top: 1.5rem;
@@ -1004,6 +1007,9 @@ select {
 .border {
   border-width: 1px;
 }
+.border-2 {
+  border-width: 2px;
+}
 .border-4 {
   border-width: 4px;
 }
@@ -1130,6 +1136,10 @@ select {
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
+.px-7 {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+}
 .pt-1 {
   padding-top: 0.25rem;
 }
@@ -1145,6 +1155,12 @@ select {
 .pr-1 {
   padding-right: 0.25rem;
 }
+.pt-4 {
+  padding-top: 1rem;
+}
+.pt-3 {
+  padding-top: 0.75rem;
+}
 .pt-6 {
   padding-top: 1.5rem;
 }
@@ -1154,14 +1170,8 @@ select {
 .pb-3 {
   padding-bottom: 0.75rem;
 }
-.pt-4 {
-  padding-top: 1rem;
-}
 .pb-1 {
   padding-bottom: 0.25rem;
-}
-.pt-3 {
-  padding-top: 0.75rem;
 }
 .text-center {
   text-align: center;
@@ -1587,7 +1597,7 @@ a {
 }
 
 .backdrop {
-    z-index: 9998;
+    z-index: 12;
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -1637,8 +1647,6 @@ a {
 }
 
 .navMenu {
-    margin: 0px;
-    padding: 0px;
     z-index: 9999;
     position: fixed;
 }

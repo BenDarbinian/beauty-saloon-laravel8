@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/047ccb3818.js" crossorigin="anonymous"></script>
+
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -71,22 +73,23 @@
         </div> -->
         <div class="fullScreenNav">
             <div class="backdrop"></div>
-            <ul class="navMenu">
+            <ul class="fixed z-20">
                 @guest
-                <li class="navMenuLi w-80 text-center mb-6 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase"><a href="register">Sign up</a></li>
-                <li class="navMenuLi w-80 text-center mb-6 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase"><a href="login">sign in</a></li>
+                <li class="flex"><a class="border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase text-center mb-3 w-80 px-6" href="register">Sign up</a></li>
+                
+                <li class="flex"><a class="w-80 text-center mb-3 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase" href="login">sign in</a></li>
                 @endguest
                 @auth
-                <li class="navMenuLi w-80 text-center mb-6 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase"><a href="account">account</a></li>
+                <li class="flex"><a class="w-80 text-center mb-3 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase" href="account">account</a></li>
                 @endauth
-                <li class="navMenuLi w-80 text-center mb-6 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase"><a href="/#map">search on map</a></li>
-                <li class="navMenuLi w-80 text-center mb-6 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase"><a href="/#categories">categories</a></li>
+                <li class="flex"><a class="w-80 text-center mb-3 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase" href="/#map">search on map</a></li>
+                <li class="flex"><a class="w-80 text-center mb-3 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase" href="/#categories">categories</a></li>
                 @guest
-                <li class="navMenuLi w-80 text-center mb-6 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase"><a href="/record_guest">record</a></li>
+                <li class="flex"><a class="w-80 text-center mb-3 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase" href="/record_guest">record</a></li>
                 @endguest
                 @auth
-                <li class="navMenuLi w-80 text-center mb-6 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase"><a href="record">record</a></li>
-                <li class="navMenuLi w-80 text-center mb-6 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase">
+                <li class="flex"><a class="w-80 text-center mb-3 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase" href="record">record</a></li>
+                <li class="w-80 text-center mb-3 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase">
                     <form action="/logout" method="POST">
                         @csrf
                         <button type="submit" class="text-white hover:text-[#bde7f5] text-4xl uppercase w-full">logout</button>
@@ -111,30 +114,53 @@
                 timer: 5000
             })
         </script>
-
-        <!--{{session('success')}}-->
         @endif
     </main>
-    <!-- <script src="./js/app.js"></script> -->
+    <footer class="text-center text-white bg-[#b6b6ff]">
+        <div class="mb-4 pt-4">
+            <a class="m-1 mr-2" href="https://vk.com/yasmin_club" role="button"><i class="fab fa-vk" style="font-size: 25px"></i></a>
+
+            <a class="m-1 mr-2" href="https://t-do.ru/@BenDarbinian" role="button"><i class="fa-brands fa-telegram" style="font-size: 25px"></i></a>
+
+            <a class="m-1 mr-2" href="https://wa.me/+79616104838" role="button"><i class="fa-brands fa-whatsapp" style="font-size: 25px"></i></a>
+
+
+            <a class="m-1 mr-2" href="https://spb.zoon.ru/beauty/salon_krasoty_yasmin_na_leninskom_prospekte/" role="button"><i class="fa-solid fa-o" style="font-size: 25px"></i></a>
+            <a class="m-1 mr-2" href="https://yandex.ru/maps/-/CCUJyKxcKB" role="button"><i class="fa-brands fa-yandex-international" style="font-size: 25px"></i></a>
+
+            <a class="m-1 mr-2" href="https://go.2gis.com/so2pn" role="button"><i class="fa-solid fa-location-dot" style="font-size: 25px"></i></a>
+
+            <section class="pt-3 flex flex-row justify-center">
+                <p class="m-1">+7 (961) 610-48-38</p>
+
+                <p class="m-1">yasminbeauty@gmail.com</p>
+            </section>
+
+            <section class="mb-1">
+                <p>
+                    Все предложения и цены, указанные на сайте, носят информационный характер и не являются публичной офертой.
+                </p>
+            </section>
+        </div>
+        <div class="text-center text-white p-4 bg-[#6b6bb3]">
+            © 2022 Copyright:
+            YasminBeauty.com
+        </div>
+    </footer>
     <script async src="script.js"></script>
-    <!-- Footer -->
-    <footer class="text-center text-white footer" style="background-color: #b6b6ff;">
-        <!-- Grid container -->
+    <!--
+
         <div class="container p-4">
-            <!-- Section: Social media -->
-            <section class="mb-4">
-                <!-- Facebook -->
+        <section class="mb-4">
+
                 <a class="btn btn-outline-light btn-floating m-1" href="https://vk.com/yasmin_club" role="button"><i class="fab fa-vk"></i></a>
 
                 <a class="btn btn-outline-light btn-floating m-1" href="https://t-do.ru/@BenDarbinian" role="button"><i class="fa-brands fa-telegram"></i></a>
 
-                <!-- Twitter -->
                 <a class="btn btn-outline-light btn-floating m-1" href="https://wa.me/+79616104838" role="button"><i class="fa-brands fa-whatsapp"></i></a>
 
-                <!-- Google -->
-                <a class="btn btn-outline-light btn-floating m-1" href="https://spb.zoon.ru/beauty/salon_krasoty_yasmin_na_leninskom_prospekte/" role="button"><i class="fa-solid fa-o"></i></a>
 
-                <!-- Instagram -->
+                <a class="btn btn-outline-light btn-floating m-1" href="https://spb.zoon.ru/beauty/salon_krasoty_yasmin_na_leninskom_prospekte/" role="button"><i class="fa-solid fa-o"></i></a>
                 <a class="btn btn-outline-light btn-floating m-1" href="https://yandex.ru/maps/-/CCUJyKxcKB" role="button"><i class="fa-brands fa-yandex-international"></i></a>
 
                 <a class="btn btn-outline-light btn-floating m-1" href="https://go.2gis.com/so2pn" role="button"><i class="fa-solid fa-location-dot"></i></a>
@@ -143,26 +169,21 @@
 
                 <p class="btn btn-floating m-1">yasminbeauty@gmail.com</p>
             </section>
-            <!-- Section: Social media -->
-            <!-- Section: Text -->
+
             <section class="mb-4">
 
                 <p>
                     Все предложения и цены, указанные на сайте, носят информационный характер и не являются публичной офертой.
                 </p>
             </section>
-            <!-- Section: Text -->
-        </div>
-        <!-- Grid container -->
 
-        <!-- Copyright -->
+        </div>
+
         <div class="text-center p-3" style="background-color: #6b6bb3;">
             © 2022 Copyright:
             YasminBeauty.com
         </div>
-        <!-- Copyright -->
-    </footer>
-    <!-- Footer -->
+-->
 </body>
 
 </html>

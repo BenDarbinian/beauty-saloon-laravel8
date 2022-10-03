@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\api\CategoryController;
-use App\Http\Controllers\api\FinalRecordGController;
+use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\FinalRecordGController;
 use App\Http\Controllers\Api\RecordController;
-use App\Http\Controllers\api\RecordGController;
-use App\Http\Controllers\api\RecordStatusController;
-use App\Http\Controllers\api\ServiceController;
+use App\Http\Controllers\Api\RecordGController;
+use App\Http\Controllers\Api\RecordStatusController;
+use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\ServiceHistoryController;
 use App\Http\Controllers\Api\StatusController;
 use Illuminate\Http\Request;

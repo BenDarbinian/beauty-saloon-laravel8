@@ -5391,248 +5391,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 // import axios from "axios";
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
+      i: 1,
       formData: {
         checkedNames: [],
         date: null,
@@ -6028,62 +5791,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -6188,9 +5895,13 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
         if (this.formData.date == new Date().toISOString().slice(0, 10)) {
           a.map(function (element) {
-            return element[1] = element[0].slice(0, 5) < new Date().toLocaleTimeString("en-US", {
+            element[1] = element[0].slice(0, 5) < new Date().toLocaleTimeString("en-US", {
               hour12: false
             }).slice(0, -3);
+
+            if (_this2.formData.time == element[0].slice(0, 5)) {
+              _this2.formData.time = null;
+            }
           });
         }
 
@@ -6237,6 +5948,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
                 elEndTime = this.timeConverter(recordDate[0], recordDate[1]);
 
                 if (element[0].slice(0, 5) < elEndTime.slice(0, 5) && element[0].slice(0, 5) > recordDate[0].slice(0, 5)) {
+                  if (this.formData.time == element[0].slice(0, 5)) {
+                    this.formData.time = null;
+                  }
+
                   element[1] = true;
                 }
               }
@@ -6292,7 +6007,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     fetch("/api/records").then(function (response) {
       return response.json();
     }).then(function (records) {
-      _this3.records = records;
+      _this3.records = records.data;
     });
     fetch("/api/categories").then(function (response) {
       return response.json();
@@ -7741,311 +7456,25 @@ var render = function () {
                         { attrs: { calss: "d-flex" } },
                         [
                           _c(
-                            "v-card",
+                            "v-btn",
                             {
-                              staticClass: "mx-auto",
-                              attrs: { "max-width": "1024" },
+                              staticClass: "ml-auto ma-1",
+                              attrs: {
+                                outlined: "",
+                                fab: "",
+                                "x-small": "",
+                                color: "danger",
+                              },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.closeBoard()
+                                },
+                              },
                             },
-                            [
-                              _c(
-                                "v-toolbar",
-                                {
-                                  attrs: {
-                                    flat: "",
-                                    color: "deep-purple lighten-3",
-                                    dark: "",
-                                  },
-                                },
-                                [
-                                  [
-                                    _c("v-toolbar-title", [
-                                      _vm._v("Выбор услуг"),
-                                    ]),
-                                    _vm._v(" "),
-                                    _c(
-                                      "v-btn",
-                                      {
-                                        staticClass: "ml-auto ma-1",
-                                        attrs: {
-                                          outlined: "",
-                                          fab: "",
-                                          "x-small": "",
-                                          color: "danger",
-                                        },
-                                        on: {
-                                          click: function ($event) {
-                                            return _vm.closeBoard()
-                                          },
-                                        },
-                                      },
-                                      [
-                                        _c("i", {
-                                          staticClass: "fa-solid fa-xmark",
-                                        }),
-                                      ]
-                                    ),
-                                  ],
-                                ],
-                                2
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-sheet",
-                                {
-                                  staticClass:
-                                    "d-flex justify-center py-1 px-1",
-                                },
-                                [
-                                  _c(
-                                    "v-chip-group",
-                                    {
-                                      attrs: {
-                                        mandatory: "",
-                                        "active-class":
-                                          "deep-purple--text text--accent-4",
-                                      },
-                                      model: {
-                                        value: _vm.checkedCat,
-                                        callback: function ($$v) {
-                                          _vm.checkedCat = $$v
-                                        },
-                                        expression: "checkedCat",
-                                      },
-                                    },
-                                    _vm._l(_vm.categories, function (category) {
-                                      return _c(
-                                        "v-chip",
-                                        {
-                                          key: category.id,
-                                          attrs: {
-                                            id: category.id,
-                                            value: category.id,
-                                          },
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                                    " +
-                                              _vm._s(category.name) +
-                                              "\n                                "
-                                          ),
-                                        ]
-                                      )
-                                    }),
-                                    1
-                                  ),
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _vm._l(_vm.categories, function (category) {
-                                return _vm.checkedCat === category.id
-                                  ? _c(
-                                      "v-card-text",
-                                      { key: category.id },
-                                      [
-                                        _c(
-                                          "h2",
-                                          { staticClass: "text-h6 mb-2" },
-                                          [
-                                            _vm._v(
-                                              "\n                                " +
-                                                _vm._s(category.name) +
-                                                "\n                            "
-                                            ),
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "v-chip-group",
-                                          {
-                                            attrs: {
-                                              "active-class":
-                                                "deep-purple--text text--accent-4",
-                                              column: "",
-                                              multiple: "",
-                                              max: "5",
-                                            },
-                                            model: {
-                                              value: _vm.formData.checkedNames,
-                                              callback: function ($$v) {
-                                                _vm.$set(
-                                                  _vm.formData,
-                                                  "checkedNames",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "formData.checkedNames",
-                                            },
-                                          },
-                                          _vm._l(
-                                            _vm.services
-                                              .filter(function (services) {
-                                                return (
-                                                  services.category_id ==
-                                                  category.id
-                                                )
-                                              })
-                                              .sort(_vm.services.price),
-                                            function (service) {
-                                              return _c(
-                                                "v-chip",
-                                                {
-                                                  key: service.id,
-                                                  attrs: {
-                                                    outlined: "",
-                                                    id: service.id,
-                                                    value: service.id,
-                                                  },
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    "\n                                    " +
-                                                      _vm._s(service.name) +
-                                                      "\n                                "
-                                                  ),
-                                                ]
-                                              )
-                                            }
-                                          ),
-                                          1
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "v-row",
-                                          {
-                                            attrs: { justify: "space-around" },
-                                          },
-                                          [
-                                            _c(
-                                              "v-col",
-                                              [
-                                                _c("v-date-picker", {
-                                                  staticClass: "mx-auto test2",
-                                                  attrs: {
-                                                    min: _vm.mindate,
-                                                    "max-width": "600",
-                                                    max: _vm.maxdate,
-                                                    disabled: _vm.disDate(),
-                                                    landscape: "",
-                                                    locale: "ru-RU",
-                                                    color:
-                                                      "deep-purple lighten-3",
-                                                  },
-                                                  model: {
-                                                    value: _vm.formData.date,
-                                                    callback: function ($$v) {
-                                                      _vm.$set(
-                                                        _vm.formData,
-                                                        "date",
-                                                        $$v
-                                                      )
-                                                    },
-                                                    expression: "formData.date",
-                                                  },
-                                                }),
-                                              ],
-                                              1
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "v-col",
-                                              [
-                                                _c(
-                                                  "v-chip-group",
-                                                  {
-                                                    staticClass: "test2 test3",
-                                                    attrs: {
-                                                      "active-class":
-                                                        "deep-purple--text text--accent-4",
-                                                      column: "",
-                                                      mandatory: "",
-                                                    },
-                                                    model: {
-                                                      value: _vm.formData.time,
-                                                      callback: function ($$v) {
-                                                        _vm.$set(
-                                                          _vm.formData,
-                                                          "time",
-                                                          $$v
-                                                        )
-                                                      },
-                                                      expression:
-                                                        "formData.time",
-                                                    },
-                                                  },
-                                                  _vm._l(
-                                                    _vm.Timebuttons,
-                                                    function (i) {
-                                                      return _c(
-                                                        "v-chip",
-                                                        {
-                                                          key: i.slice(0, 5),
-                                                          attrs: {
-                                                            value: i.slice(
-                                                              0,
-                                                              5
-                                                            ),
-                                                            disabled:
-                                                              _vm.disTime(i),
-                                                          },
-                                                        },
-                                                        [
-                                                          _vm._v(
-                                                            _vm._s(
-                                                              i.slice(0, 5)
-                                                            ) +
-                                                              "\n                                        "
-                                                          ),
-                                                        ]
-                                                      )
-                                                    }
-                                                  ),
-                                                  1
-                                                ),
-                                              ],
-                                              1
-                                            ),
-                                          ],
-                                          1
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          { staticClass: "text-center" },
-                                          [
-                                            _c(
-                                              "v-btn",
-                                              {
-                                                staticClass: "ma-2",
-                                                attrs: {
-                                                  disabled: _vm.disRec(),
-                                                  color:
-                                                    "deep-purple--text text--accent-4",
-                                                },
-                                                on: {
-                                                  click: function ($event) {
-                                                    return _vm.CreateRecord()
-                                                  },
-                                                },
-                                              },
-                                              [
-                                                _vm._v(
-                                                  "\n                                    Запись\n                                "
-                                                ),
-                                              ]
-                                            ),
-                                          ],
-                                          1
-                                        ),
-                                      ],
-                                      1
-                                    )
-                                  : _vm._e()
-                              }),
-                            ],
-                            2
+                            [_c("i", { staticClass: "fa-solid fa-xmark" })]
                           ),
+                          _vm._v(" "),
+                          _c("record-component"),
                         ],
                         1
                       )
@@ -8053,22 +7482,26 @@ var render = function () {
                   _vm._v(" "),
                   _c(
                     "table",
-                    {
-                      staticClass: "table table-condensed table-striped test15",
-                    },
+                    { staticClass: "table-auto test15 w-full" },
                     [
                       _vm.checkedStatus == 1 || _vm.checkedStatus == 4
                         ? _c("thead", [
                             _c("tr", [
                               _c("th"),
                               _vm._v(" "),
-                              _c("th", [_vm._v("Имя")]),
+                              _c("th", { staticClass: "pr-10" }, [
+                                _vm._v("Имя"),
+                              ]),
                               _vm._v(" "),
-                              _c("th", [_vm._v("Номер телефона")]),
+                              _c("th", { staticClass: "pr-10" }, [
+                                _vm._v("Номер телефона"),
+                              ]),
                               _vm._v(" "),
-                              _c("th", [_vm._v("Статус")]),
+                              _c("th", { staticClass: "pr-10" }, [
+                                _vm._v("Статус"),
+                              ]),
                               _vm._v(" "),
-                              _c("th"),
+                              _c("th", { staticClass: "pr-10" }),
                             ]),
                           ])
                         : _vm._e(),
@@ -8088,7 +7521,7 @@ var render = function () {
                                   _vm.checkedStatus == status.id &&
                                   status.id != 2 &&
                                   status.id != 3
-                                    ? _c("tr", [
+                                    ? _c("tr", { staticClass: "h-5" }, [
                                         _c("td"),
                                         _vm._v(" "),
                                         _c("td", [
@@ -8198,27 +7631,29 @@ var render = function () {
                   _vm._v(" "),
                   _c(
                     "table",
-                    {
-                      staticClass: "table table-condensed table-striped test15",
-                    },
+                    { staticClass: "table-auto test15 w-full" },
                     [
                       _c("thead", [
                         _c("tr", [
                           _c("th"),
                           _vm._v(" "),
-                          _c("th", [_vm._v("Имя")]),
+                          _c("th", { staticClass: "pr-5" }, [_vm._v("Имя")]),
                           _vm._v(" "),
-                          _c("th", [_vm._v("Номер")]),
+                          _c("th", { staticClass: "pr-5" }, [_vm._v("Номер")]),
                           _vm._v(" "),
-                          _c("th", [_vm._v("Дата")]),
+                          _c("th", { staticClass: "pr-5" }, [_vm._v("Дата")]),
                           _vm._v(" "),
-                          _c("th", [_vm._v("Время")]),
+                          _c("th", { staticClass: "pr-5" }, [_vm._v("Время")]),
                           _vm._v(" "),
-                          _c("th", [_vm._v("Общая стоимость")]),
+                          _c("th", { staticClass: "pr-5" }, [
+                            _vm._v("Общая стоимость"),
+                          ]),
                           _vm._v(" "),
-                          _c("th", [_vm._v("Общее время")]),
+                          _c("th", { staticClass: "pr-5" }, [
+                            _vm._v("Общее время"),
+                          ]),
                           _vm._v(" "),
-                          _c("th", [_vm._v("Статус")]),
+                          _c("th", { staticClass: "pr-5" }, [_vm._v("Статус")]),
                           _vm._v(" "),
                           _c("th"),
                         ]),
@@ -8240,183 +7675,162 @@ var render = function () {
                               function (record) {
                                 return [
                                   _vm.checkedStatus == status.id
-                                    ? _c(
-                                        "tr",
-                                        {
-                                          staticClass: "accordion-toggle",
-                                          attrs: {
-                                            "data-toggle": "collapse",
-                                            "data-target": record.id,
-                                          },
-                                        },
-                                        [
-                                          _c("td"),
-                                          _vm._v(" "),
-                                          _c("td", [
-                                            _vm._v(_vm._s(record.name)),
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("td", [
-                                            _vm._v(_vm._s(record.phone_number)),
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("td", [
-                                            _vm._v(_vm._s(record.date)),
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("td", [
-                                            _vm._v(_vm._s(record.time)),
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("td", [
-                                            _vm._v(
-                                              _vm._s(record.sPrice) + " рублей"
-                                            ),
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("td", [
-                                            _vm._v(
-                                              _vm._s(record.sTime) + " минут"
-                                            ),
-                                          ]),
-                                          _vm._v(" "),
-                                          _c(
-                                            "td",
-                                            {
-                                              class: _vm.statusColor(
-                                                record.status.bootColor
-                                              ),
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                                    " +
-                                                  _vm._s(record.status.name) +
-                                                  "\n                                "
-                                              ),
-                                            ]
+                                    ? _c("tr", [
+                                        _c("td"),
+                                        _vm._v(" "),
+                                        _c("td", [_vm._v(_vm._s(record.name))]),
+                                        _vm._v(" "),
+                                        _c("td", [
+                                          _vm._v(_vm._s(record.phone_number)),
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("td", [_vm._v(_vm._s(record.date))]),
+                                        _vm._v(" "),
+                                        _c("td", [_vm._v(_vm._s(record.time))]),
+                                        _vm._v(" "),
+                                        _c("td", [
+                                          _vm._v(
+                                            _vm._s(record.sPrice) + " рублей"
                                           ),
-                                          _vm._v(" "),
-                                          status.id == 1 || status.id == 2
-                                            ? _c(
-                                                "td",
-                                                { staticClass: "d-flex" },
-                                                [
-                                                  status.id == 1
-                                                    ? [
-                                                        _c(
-                                                          "v-btn",
-                                                          {
-                                                            key: record.id,
-                                                            staticClass: "ma-1",
-                                                            attrs: {
-                                                              outlined: "",
-                                                              fab: "",
-                                                              "x-small": "",
-                                                              color: "blue",
-                                                              value:
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("td", [
+                                          _vm._v(
+                                            _vm._s(record.sTime) + " минут"
+                                          ),
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            class: _vm.statusColor(
+                                              record.status.bootColor
+                                            ),
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                    " +
+                                                _vm._s(record.status.name) +
+                                                "\n                                "
+                                            ),
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        status.id == 1 || status.id == 2
+                                          ? _c(
+                                              "td",
+                                              { staticClass: "d-flex" },
+                                              [
+                                                status.id == 1
+                                                  ? [
+                                                      _c(
+                                                        "v-btn",
+                                                        {
+                                                          key: record.id,
+                                                          staticClass: "ma-1",
+                                                          attrs: {
+                                                            outlined: "",
+                                                            fab: "",
+                                                            "x-small": "",
+                                                            color: "blue",
+                                                            value:
+                                                              "Подтверждена",
+                                                            id: record.id,
+                                                          },
+                                                          on: {
+                                                            click: function (
+                                                              $event
+                                                            ) {
+                                                              return _vm.recording(
+                                                                2,
                                                                 "Подтверждена",
-                                                              id: record.id,
-                                                            },
-                                                            on: {
-                                                              click: function (
-                                                                $event
-                                                              ) {
-                                                                return _vm.recording(
-                                                                  2,
-                                                                  "Подтверждена",
-                                                                  record.id
-                                                                )
-                                                              },
+                                                                record.id
+                                                              )
                                                             },
                                                           },
-                                                          [
-                                                            _c("i", {
-                                                              staticClass:
-                                                                "fa-solid fa-circle-check",
-                                                            }),
-                                                          ]
-                                                        ),
-                                                      ]
-                                                    : _vm._e(),
-                                                  _vm._v(" "),
-                                                  status.id == 2
-                                                    ? [
-                                                        _c(
-                                                          "v-btn",
-                                                          {
-                                                            key: record.id,
-                                                            staticClass: "ma-1",
-                                                            attrs: {
-                                                              outlined: "",
-                                                              fab: "",
-                                                              "x-small": "",
-                                                              color: "green",
-                                                              value:
-                                                                "Проведена",
-                                                              id: record.id,
-                                                            },
-                                                            on: {
-                                                              click: function (
-                                                                $event
-                                                              ) {
-                                                                return _vm.recording(
-                                                                  3,
-                                                                  "Проведена",
-                                                                  record.id
-                                                                )
-                                                              },
-                                                            },
-                                                          },
-                                                          [
-                                                            _c("i", {
-                                                              staticClass:
-                                                                "fa-solid fa-circle-check",
-                                                            }),
-                                                          ]
-                                                        ),
-                                                      ]
-                                                    : _vm._e(),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "v-btn",
-                                                    {
-                                                      key: _vm.disKey(
-                                                        record.id
-                                                      ),
-                                                      staticClass: "ma-1",
-                                                      attrs: {
-                                                        outlined: "",
-                                                        fab: "",
-                                                        "x-small": "",
-                                                        color: "red",
-                                                        value: "Отменена",
-                                                        id: record.id,
-                                                      },
-                                                      on: {
-                                                        click: function (
-                                                          $event
-                                                        ) {
-                                                          return _vm.recording(
-                                                            4,
-                                                            "Отменена",
-                                                            record.id
-                                                          )
                                                         },
+                                                        [
+                                                          _c("i", {
+                                                            staticClass:
+                                                              "fa-solid fa-circle-check",
+                                                          }),
+                                                        ]
+                                                      ),
+                                                    ]
+                                                  : _vm._e(),
+                                                _vm._v(" "),
+                                                status.id == 2
+                                                  ? [
+                                                      _c(
+                                                        "v-btn",
+                                                        {
+                                                          key: record.id,
+                                                          staticClass: "ma-1",
+                                                          attrs: {
+                                                            outlined: "",
+                                                            fab: "",
+                                                            "x-small": "",
+                                                            color: "green",
+                                                            value: "Проведена",
+                                                            id: record.id,
+                                                          },
+                                                          on: {
+                                                            click: function (
+                                                              $event
+                                                            ) {
+                                                              return _vm.recording(
+                                                                3,
+                                                                "Проведена",
+                                                                record.id
+                                                              )
+                                                            },
+                                                          },
+                                                        },
+                                                        [
+                                                          _c("i", {
+                                                            staticClass:
+                                                              "fa-solid fa-circle-check",
+                                                          }),
+                                                        ]
+                                                      ),
+                                                    ]
+                                                  : _vm._e(),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "v-btn",
+                                                  {
+                                                    key: _vm.disKey(record.id),
+                                                    staticClass: "ma-1",
+                                                    attrs: {
+                                                      outlined: "",
+                                                      fab: "",
+                                                      "x-small": "",
+                                                      color: "red",
+                                                      value: "Отменена",
+                                                      id: record.id,
+                                                    },
+                                                    on: {
+                                                      click: function ($event) {
+                                                        return _vm.recording(
+                                                          4,
+                                                          "Отменена",
+                                                          record.id
+                                                        )
                                                       },
                                                     },
-                                                    [
-                                                      _c("i", {
-                                                        staticClass:
-                                                          "fa-solid fa-xmark",
-                                                      }),
-                                                    ]
-                                                  ),
-                                                ],
-                                                2
-                                              )
-                                            : _vm._e(),
-                                        ]
-                                      )
+                                                  },
+                                                  [
+                                                    _c("i", {
+                                                      staticClass:
+                                                        "fa-solid fa-xmark",
+                                                    }),
+                                                  ]
+                                                ),
+                                              ],
+                                              2
+                                            )
+                                          : _vm._e(),
+                                      ])
                                     : _vm._e(),
                                 ]
                               }
@@ -8474,28 +7888,39 @@ var render = function () {
                       _vm._v(" "),
                       _c(
                         "table",
-                        {
-                          staticClass:
-                            "table table-condensed table-striped test15",
-                        },
+                        { staticClass: "table-auto test15 w-full" },
                         [
                           _c("thead", [
                             _c("tr", [
                               _c("th"),
                               _vm._v(" "),
-                              _c("th", [_vm._v("Имя")]),
+                              _c("th", { staticClass: "pl-5" }, [
+                                _vm._v("Имя"),
+                              ]),
                               _vm._v(" "),
-                              _c("th", [_vm._v("Номер")]),
+                              _c("th", { staticClass: "pl-5" }, [
+                                _vm._v("Номер"),
+                              ]),
                               _vm._v(" "),
-                              _c("th", [_vm._v("Дата")]),
+                              _c("th", { staticClass: "pl-5" }, [
+                                _vm._v("Дата"),
+                              ]),
                               _vm._v(" "),
-                              _c("th", [_vm._v("Время")]),
+                              _c("th", { staticClass: "pl-5" }, [
+                                _vm._v("Время"),
+                              ]),
                               _vm._v(" "),
-                              _c("th", [_vm._v("Общая стоимость")]),
+                              _c("th", { staticClass: "pl-5" }, [
+                                _vm._v("Общая стоимость"),
+                              ]),
                               _vm._v(" "),
-                              _c("th", [_vm._v("Общее время")]),
+                              _c("th", { staticClass: "pl-5" }, [
+                                _vm._v("Общее время"),
+                              ]),
                               _vm._v(" "),
-                              _c("th", [_vm._v("Статус")]),
+                              _c("th", { staticClass: "pl-5" }, [
+                                _vm._v("Статус"),
+                              ]),
                               _vm._v(" "),
                               _c("th"),
                             ]),
@@ -8517,194 +7942,180 @@ var render = function () {
                                   function (record) {
                                     return [
                                       _vm.checkedStatus == status.id
-                                        ? _c(
-                                            "tr",
-                                            {
-                                              staticClass: "accordion-toggle",
-                                              attrs: {
-                                                "data-toggle": "collapse",
-                                                "data-target": record.id,
-                                              },
-                                            },
-                                            [
-                                              _c("td"),
-                                              _vm._v(" "),
-                                              _c("td", [
-                                                _vm._v(_vm._s(record.name)),
-                                              ]),
-                                              _vm._v(" "),
-                                              _c("td", [
-                                                _vm._v(
-                                                  _vm._s(record.phone_number)
-                                                ),
-                                              ]),
-                                              _vm._v(" "),
-                                              _c("td", [
-                                                _vm._v(_vm._s(record.date)),
-                                              ]),
-                                              _vm._v(" "),
-                                              _c("td", [
-                                                _vm._v(_vm._s(record.time)),
-                                              ]),
-                                              _vm._v(" "),
-                                              _c("td", [
-                                                _vm._v(
-                                                  _vm._s(record.sPrice) +
-                                                    " рублей"
-                                                ),
-                                              ]),
-                                              _vm._v(" "),
-                                              _c("td", [
-                                                _vm._v(
-                                                  _vm._s(record.sTime) +
-                                                    " минут"
-                                                ),
-                                              ]),
-                                              _vm._v(" "),
-                                              _c(
-                                                "td",
-                                                {
-                                                  class: _vm.statusColor(
-                                                    record.status.bootColor
-                                                  ),
-                                                },
-                                                [
-                                                  _vm._v(
-                                                    "\n                                    " +
-                                                      _vm._s(
-                                                        record.status.name
-                                                      ) +
-                                                      "\n                                "
-                                                  ),
-                                                ]
+                                        ? _c("tr", [
+                                            _c("td"),
+                                            _vm._v(" "),
+                                            _c("td", { staticClass: "pl-5" }, [
+                                              _vm._v(_vm._s(record.name)),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("td", { staticClass: "pl-5" }, [
+                                              _vm._v(
+                                                _vm._s(record.phone_number)
                                               ),
-                                              _vm._v(" "),
-                                              status.id == 1 || status.id == 2
-                                                ? _c(
-                                                    "td",
-                                                    { staticClass: "d-flex" },
-                                                    [
-                                                      status.id == 1
-                                                        ? [
-                                                            _c(
-                                                              "v-btn",
-                                                              {
-                                                                key: record.id,
-                                                                staticClass:
-                                                                  "ma-1",
-                                                                attrs: {
-                                                                  outlined: "",
-                                                                  fab: "",
-                                                                  "x-small": "",
-                                                                  color: "blue",
-                                                                  value:
-                                                                    "Подтверждена",
-                                                                  id: record.id,
-                                                                },
-                                                                on: {
-                                                                  click:
-                                                                    function (
-                                                                      $event
-                                                                    ) {
-                                                                      return _vm.recording(
-                                                                        2,
-                                                                        "Подтверждена",
-                                                                        record.id
-                                                                      )
-                                                                    },
-                                                                },
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("td", { staticClass: "pl-5" }, [
+                                              _vm._v(_vm._s(record.date)),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("td", { staticClass: "pl-5" }, [
+                                              _vm._v(_vm._s(record.time)),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("td", { staticClass: "pl-5" }, [
+                                              _vm._v(
+                                                _vm._s(record.sPrice) +
+                                                  " рублей"
+                                              ),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("td", { staticClass: "pl-5" }, [
+                                              _vm._v(
+                                                _vm._s(record.sTime) + " минут"
+                                              ),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "td",
+                                              {
+                                                class: _vm.statusColor(
+                                                  record.status.bootColor
+                                                ),
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n                                    " +
+                                                    _vm._s(record.status.name) +
+                                                    "\n                                "
+                                                ),
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            status.id == 1 || status.id == 2
+                                              ? _c(
+                                                  "td",
+                                                  { staticClass: "d-flex" },
+                                                  [
+                                                    status.id == 1
+                                                      ? [
+                                                          _c(
+                                                            "v-btn",
+                                                            {
+                                                              key: record.id,
+                                                              staticClass:
+                                                                "ma-1",
+                                                              attrs: {
+                                                                outlined: "",
+                                                                fab: "",
+                                                                "x-small": "",
+                                                                color: "blue",
+                                                                value:
+                                                                  "Подтверждена",
+                                                                id: record.id,
                                                               },
-                                                              [
-                                                                _c("i", {
-                                                                  staticClass:
-                                                                    "fa-solid fa-circle-check",
-                                                                }),
-                                                              ]
-                                                            ),
-                                                          ]
-                                                        : _vm._e(),
-                                                      _vm._v(" "),
-                                                      status.id == 2
-                                                        ? [
-                                                            _c(
-                                                              "v-btn",
-                                                              {
-                                                                key: record.id,
-                                                                staticClass:
-                                                                  "ma-1",
-                                                                attrs: {
-                                                                  outlined: "",
-                                                                  fab: "",
-                                                                  "x-small": "",
-                                                                  color:
-                                                                    "green",
-                                                                  value:
-                                                                    "Проведена",
-                                                                  id: record.id,
-                                                                },
-                                                                on: {
-                                                                  click:
-                                                                    function (
-                                                                      $event
-                                                                    ) {
-                                                                      return _vm.recording(
-                                                                        3,
-                                                                        "Проведена",
-                                                                        record.id
-                                                                      )
-                                                                    },
-                                                                },
+                                                              on: {
+                                                                click:
+                                                                  function (
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.recording(
+                                                                      2,
+                                                                      "Подтверждена",
+                                                                      record.id
+                                                                    )
+                                                                  },
                                                               },
-                                                              [
-                                                                _c("i", {
-                                                                  staticClass:
-                                                                    "fa-solid fa-circle-check",
-                                                                }),
-                                                              ]
-                                                            ),
-                                                          ]
-                                                        : _vm._e(),
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "v-btn",
-                                                        {
-                                                          key: _vm.disKey(
-                                                            record.id
-                                                          ),
-                                                          staticClass: "ma-1",
-                                                          attrs: {
-                                                            outlined: "",
-                                                            fab: "",
-                                                            "x-small": "",
-                                                            color: "red",
-                                                            value: "Отменена",
-                                                            id: record.id,
-                                                          },
-                                                          on: {
-                                                            click: function (
-                                                              $event
-                                                            ) {
-                                                              return _vm.recording(
-                                                                4,
-                                                                "Отменена",
-                                                                record.id
-                                                              )
                                                             },
+                                                            [
+                                                              _c("i", {
+                                                                staticClass:
+                                                                  "fa-solid fa-circle-check",
+                                                              }),
+                                                            ]
+                                                          ),
+                                                        ]
+                                                      : _vm._e(),
+                                                    _vm._v(" "),
+                                                    status.id == 2
+                                                      ? [
+                                                          _c(
+                                                            "v-btn",
+                                                            {
+                                                              key: record.id,
+                                                              staticClass:
+                                                                "ma-1",
+                                                              attrs: {
+                                                                outlined: "",
+                                                                fab: "",
+                                                                "x-small": "",
+                                                                color: "green",
+                                                                value:
+                                                                  "Проведена",
+                                                                id: record.id,
+                                                              },
+                                                              on: {
+                                                                click:
+                                                                  function (
+                                                                    $event
+                                                                  ) {
+                                                                    return _vm.recording(
+                                                                      3,
+                                                                      "Проведена",
+                                                                      record.id
+                                                                    )
+                                                                  },
+                                                              },
+                                                            },
+                                                            [
+                                                              _c("i", {
+                                                                staticClass:
+                                                                  "fa-solid fa-circle-check",
+                                                              }),
+                                                            ]
+                                                          ),
+                                                        ]
+                                                      : _vm._e(),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "v-btn",
+                                                      {
+                                                        key: _vm.disKey(
+                                                          record.id
+                                                        ),
+                                                        staticClass: "ma-1",
+                                                        attrs: {
+                                                          outlined: "",
+                                                          fab: "",
+                                                          "x-small": "",
+                                                          color: "red",
+                                                          value: "Отменена",
+                                                          id: record.id,
+                                                        },
+                                                        on: {
+                                                          click: function (
+                                                            $event
+                                                          ) {
+                                                            return _vm.recording(
+                                                              4,
+                                                              "Отменена",
+                                                              record.id
+                                                            )
                                                           },
                                                         },
-                                                        [
-                                                          _c("i", {
-                                                            staticClass:
-                                                              "fa-solid fa-xmark",
-                                                          }),
-                                                        ]
-                                                      ),
-                                                    ],
-                                                    2
-                                                  )
-                                                : _vm._e(),
-                                            ]
-                                          )
+                                                      },
+                                                      [
+                                                        _c("i", {
+                                                          staticClass:
+                                                            "fa-solid fa-xmark",
+                                                        }),
+                                                      ]
+                                                    ),
+                                                  ],
+                                                  2
+                                                )
+                                              : _vm._e(),
+                                          ])
                                         : _vm._e(),
                                     ]
                                   }
@@ -8753,21 +8164,9 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-app",
+    "v-main",
     { staticStyle: { "background-color": "#b6b6ff" } },
     [
-      _c("div", { staticClass: "text-center mt-5" }, [
-        _c(
-          "a",
-          {
-            staticClass: "font-sans font-bold text-4xl uppercase text-gray-900",
-            staticStyle: { color: "#111827" },
-            attrs: { href: "/" },
-          },
-          [_vm._v("Yasmin")]
-        ),
-      ]),
-      _vm._v(" "),
       _c(
         "v-card",
         { staticClass: "mx-auto mt-5", attrs: { "max-width": "900" } },
@@ -8787,6 +8186,7 @@ var render = function () {
                 "v-chip-group",
                 {
                   attrs: {
+                    column: "",
                     mandatory: "",
                     "active-class": "deep-purple--text text--accent-4",
                   },
@@ -8883,7 +8283,10 @@ var render = function () {
                       [
                         _c(
                           "v-col",
-                          { staticClass: "flex" },
+                          {
+                            staticClass: "flex",
+                            attrs: { xs: "12", sm: "6", md: "6" },
+                          },
                           [
                             _c("v-date-picker", {
                               staticClass: "mx-auto test2",
@@ -8909,11 +8312,12 @@ var render = function () {
                         _vm._v(" "),
                         _c(
                           "v-col",
+                          { attrs: { xs: "12", sm: "6", md: "6", lg: "6" } },
                           [
                             _c(
                               "v-chip-group",
                               {
-                                staticClass: "mt-5",
+                                staticClass: "md:mt-5 mt-3 ml-6",
                                 attrs: {
                                   "active-class":
                                     "deep-purple--text text--accent-4",
@@ -8987,15 +8391,6 @@ var render = function () {
                 )
               : _vm._e()
           }),
-          _vm._v(
-            "\n        " +
-              _vm._s(_vm.checkedCat) +
-              "\n        " +
-              _vm._s(_vm.formData.checkedNames) +
-              "\n        " +
-              _vm._s(_vm.formData.date) +
-              "\n    "
-          ),
         ],
         2
       ),
