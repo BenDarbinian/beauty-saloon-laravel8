@@ -17,8 +17,13 @@ class RecordGController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'name' => 'max:15|min:2',
-            'phone_number' => Rule::unique('users', 'phone_number')
+            'name' => ['max:15', 'string', 'min:2'],
+            'phone_number' => ['min:18', Rule::unique('users', 'phone_number')]
+        ], [
+            'name.min' => 'Длина имени не должна быть меньше :min символов.',
+            'name.max' => 'Длина имени не должна превышать :max символов.',
+            'phone_number.min' => 'Указан неполный номер телефона.',
+            'phone_number.unique' => 'Указанный номер телефона зарегистрирован.'
         ]);
         $recordg = new RecordG;
         $recordg->name = $request->name;

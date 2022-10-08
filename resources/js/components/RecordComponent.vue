@@ -151,16 +151,13 @@ export default {
                 ) {
                     a.map(
                         (element) => {
-                            (element[1] =
-                                element[0].slice(0, 5) <
-                                new Date()
-                                    .toLocaleTimeString("en-US", {
-                                        hour12: false,
-                                    })
-                                    .slice(0, -3))
-                            if (this.formData.time == element[0].slice(0, 5)) {
-                                this.formData.time = null;
+                            if (element[0].slice(0, 5) < new Date().toLocaleTimeString("en-US", { hour12: false }).slice(0, -3)) {
+                                if (this.formData.time == element[0].slice(0, 5)) {
+                                    this.formData.time = null;
+                                }
+                                element[1] = true;
                             }
+
                         }
                     );
                 }

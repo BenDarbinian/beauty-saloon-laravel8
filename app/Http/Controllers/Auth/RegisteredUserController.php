@@ -35,10 +35,25 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'min:2', 'max:15'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'phone_number' => Rule::unique('users','phone_number'),
+            'password' => ['required', 'confirmed', 'max:255', Rules\Password::defaults()],
+            'phone_number' => ['required', 'min:18', Rule::unique('users', 'phone_number')],
+        ], [
+            'name.required' => 'Поле "Имя" не заполнено.',
+            'name.min' => 'Длина имени не должна быть меньше :min символов.',
+            'name.max' => 'Длина имени не должна превышать :max символов.',
+            'email.required' => 'Поле "Почта" не заполнено.',
+            'email.email' => 'Ввод не является электронной почтой.',
+            'email.max' => 'Длина почты не должна превышать :max символов.',
+            'email.unique' => 'Указанная электронная почта занята.',
+            'password.required' => 'Поле "Пароль" не заполнено.',
+            'password.min' => 'Пароль не должен быть меньше :min символов.',
+            'password.max' => 'Пароль не должен быть больше :max символов.',
+            'password.confirmed' => 'Подтверждение пароля не совпадает.',
+            'phone_number.required' => 'Поле "Номер телефона" не заполнено.',
+            'phone_number.min' => 'Указан неполный номер телефона.',
+            'phone_number.unique' => 'Указанный номер телефона занят.'
         ]);
 
         $user = User::create([
@@ -54,5 +69,4 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME)->with('success', 'Вы успешно зарегистрировались.');;
     }
-    
 }

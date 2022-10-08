@@ -67,32 +67,30 @@
                     </form>
                 </li>
                 @endauth
-
-
             </ul>
         </div> -->
         <div class="fullScreenNav">
             <div class="backdrop"></div>
-            <ul class="fixed z-20">
+            <ul class="navMenu fixed z-20">
                 @guest
-                <li class="flex"><a class="border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase text-center mb-3 w-80 px-6" href="register">Sign up</a></li>
-                
-                <li class="flex"><a class="w-80 text-center mb-3 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase" href="login">sign in</a></li>
+                <li class="flex"><a class="text-center mb-3 w-[360px] px-6 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase" href="register">РЕГИСТРАЦИЯ</a></li>
+
+                <li class="flex"><a class="w-[360px] text-center mb-3 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase" href="login">АВТОРИЗАЦИЯ</a></li>
                 @endguest
                 @auth
-                <li class="flex"><a class="w-80 text-center mb-3 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase" href="account">account</a></li>
+                <li class="flex"><a class="w-[360px] text-center mb-3 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase" href="account">ЛИЧНЫЙ КАБИНЕТ</a></li>
                 @endauth
-                <li class="flex"><a class="w-80 text-center mb-3 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase" href="/#map">search on map</a></li>
-                <li class="flex"><a class="w-80 text-center mb-3 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase" href="/#categories">categories</a></li>
+                <li class="flex"><a class="w-[360px] text-center mb-3 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase" href="/#map">ПОИСК НА КАРТЕ</a></li>
+                <li class="flex"><a class="w-[360px] text-center mb-3 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase" href="/#categories">КАТЕГОРИИ</a></li>
                 @guest
-                <li class="flex"><a class="w-80 text-center mb-3 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase" href="/record_guest">record</a></li>
+                <li class="flex"><a class="w-[360px] text-center mb-3 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase" href="/record_guest">ЗАПИСЬ</a></li>
                 @endguest
                 @auth
-                <li class="flex"><a class="w-80 text-center mb-3 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase" href="record">record</a></li>
-                <li class="w-80 text-center mb-3 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase">
+                <li class="flex"><a class="w-[360px] text-center mb-3 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase" href="record">ЗАПИСЬ</a></li>
+                <li class="w-[360px] text-center mb-3 border-4 border-white hover:border-[#bde7f5] rounded-lg hover:text-[#bde7f5] text-white text-4xl uppercase">
                     <form action="/logout" method="POST">
                         @csrf
-                        <button type="submit" class="text-white hover:text-[#bde7f5] text-4xl uppercase w-full">logout</button>
+                        <button type="submit" class="text-white hover:text-[#bde7f5] text-4xl uppercase w-full">Выйти</button>
                     </form>
                 </li>
                 @endauth
@@ -120,7 +118,7 @@
         <div class="mb-4 pt-4">
             <a class="m-1 mr-2" href="https://vk.com/yasmin_club" role="button"><i class="fab fa-vk" style="font-size: 25px"></i></a>
 
-            <a class="m-1 mr-2" href="https://t-do.ru/@BenDarbinian" role="button"><i class="fa-brands fa-telegram" style="font-size: 25px"></i></a>
+            <a class="m-1 mr-2" href="https://t.me/BenDarbinian" role="button"><i class="fa-brands fa-telegram" style="font-size: 25px"></i></a>
 
             <a class="m-1 mr-2" href="https://wa.me/+79616104838" role="button"><i class="fa-brands fa-whatsapp" style="font-size: 25px"></i></a>
 

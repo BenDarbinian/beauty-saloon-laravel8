@@ -1,0 +1,37 @@
+{
+    "Reset Password Notification": "Уведомление о сбросе пароля",
+    "Hello!": "Привет!",
+    "You are receiving this email because we received a password reset request for your account.": "Вы получили это письмо, потому что мы получили запрос на сброс пароля для вашей учетной записи.",
+    "This password reset link will expire in :count minutes.": "Срок действия этой ссылки для сброса пароля истекает через :count минут. ",
+    "If you did not request a password reset, no further action is required.": "Если вы не запрашивали сброс пароля, никаких дальнейших действий не требуется.",
+    "Regards": "С уважением",
+    "Oh no": "О, нет",
+    "Whoops! Something went wrong.": "Упс! Что-то пошло не так.",
+    "If you’re having trouble clicking the  button, copy and paste the URL below\ninto your web browser: [:actionURL](:actionURL)": "Если у вас возникли проблемы с нажатием кнопки \":actionText\", скопируйте и вставьте приведенный ниже URL-адрес в веб-браузер: [:actionURL](:actionURL)",
+    
+    "passwords.reset": "Пароль успешно сброшен.",
+    "auth.failed": "Почта и пароль не совпадают.",
+    
+    "passwords.sent": "Мы отправили ссылку для сброса пароля по электронной почте!",
+    "passwords.user": "Мы не можем найти пользователя с такой электронной почтой",
+    "Password": "Пароль",
+    "Confirm Password": "Подтверждение пароля",
+
+    "Email": "Почта",
+    "Email Password Reset Link": "Ссылка для сброса пароля",
+    
+    "Already registered?":"Уже зарегистрированы?",
+    "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.": "Забыли свой пароль? Не проблема. Просто сообщите нам свой адрес электронной почты, и мы отправим вам ссылку для сброса пароля, которая позволит вам выбрать новый.",
+    "Remember me": "Запомнить",
+    "Forgot your password?": "Забыли пароль?",
+    "Log in": "Войти",
+    "Reset Password" : "Сбросить пароль",
+
+    "Name": "Имя",
+    "Phone number": "Номер телефона",
+
+    "Register": "Регистрация",
+    "Record": "Запись",
+
+    "passwords.throttled":"Вы недавно запрашивали сброс пароля, пожалуйста, проверьте свою электронную почту."
+  }
