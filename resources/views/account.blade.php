@@ -24,16 +24,18 @@
                                     $n = 1;
                                     $slug = 'a';
                                     @endphp
-                                    @foreach ($records->reverse()  as $record)
+                                    @foreach ($records->reverse() as $record)
 
                                     <tr data-toggle="collapse" data-target="#{{$slug}}" class="accordion-toggle">
                                         <td></td>
                                         <td>{{$n}}</td>
                                         <td>{{$record->date}}</td>
                                         <td>{{$record->time}}</td>
-                                        <td>{{$record->sPrice}} рублей</td>
-                                        <td>{{$record->sTime}} минут</td>
-                                        <td><p class="text-{{$record->Status->bootColor}}">{{$record->Status->name}}</p></td>
+                                        <td>{{$record->sPrice}} руб</td>
+                                        <td>{{$record->sTime}} мин</td>
+                                        <td>
+                                            <p class="text-{{$record->Status->vueColor}}">{{$record->Status->name}}</p>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td colspan="12" class="hiddenRow">
@@ -54,7 +56,7 @@
                                                             <td>{{$serHis->Service->name}}</td>
                                                             <td>{{$serHis->Service->Category->name}}</td>
                                                             <td>{{$serHis->Service->price}} руб</td>
-                                                            <td>{{$serHis->Service->time}} минут</td>
+                                                            <td>{{$serHis->Service->time}} мин</td>
 
                                                         </tr>
                                                         @endforeach
@@ -62,7 +64,7 @@
                                                         $n += 1;
                                                         $slug = 'a' .$n;
                                                         @endphp
-                                   
+
                                                     </tbody>
                                                 </table>
                                             </div>

@@ -35,9 +35,9 @@
     </header> -->
     <header class="fixed z-10 drop-shadow-lg w-full h-16 bg-[#6b6bb3] flex items-center">
         <nav class="px-2 sm:px-2 md:px-4 lg:px-8 xl:px-32 w-full flex justify-between items-center">
-            <a href="/" class="font-sans font-bold text-4xl uppercase text-white transition ease in out hover:scale-110 duration-100">Yasmin</a>
+            <a href="/" class="font-sans font-bold text-4xl uppercase text-white transition ease hover:scale-110 duration-200">Yasmin</a>
             <div class="flex justify-end">
-                <a class="NavButton pr-1 cursor-pointer transition ease in out hover:scale-110 duration-100"><img class="logoimg2" src="images/menu-button-of-three-horizontal-lines.png"></a>
+                <a class="NavButton pr-1 cursor-pointer transition ease hover:scale-110 duration-200"><img class="w-9 h-9 invert" src="images/menu-button-of-three-horizontal-lines.png"></a>
             </div>
         </nav>
     </header>
@@ -145,7 +145,7 @@
             YasminBeauty.com
         </div>
     </footer>
-    <script async src="script.js"></script>
+    <script src="script.js"></script>
     <!--
 
         <div class="container p-4">

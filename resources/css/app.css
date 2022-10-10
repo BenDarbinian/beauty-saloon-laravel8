@@ -18,195 +18,55 @@
     background-clip: content-box;
 }
 
-input {
-    color: #222222;
-    font-weight: 300;
-}
-
-input::placeholder-shown {
-    color: #222222;
-}
-
 html {
     scroll-behavior: smooth;
     overflow-y: auto !important;
 }
 
 body {
-    overflow-x: hidden;
-    width: 100%;
     background-color: #bde7f5;
-    max-width: 100%;
-}
-
-.listusl {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.header {
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-}
-
-.header-wrapper {
-    height: 70px;
-}
-
-.wrapper {
-    height: 100%;
 }
 
 a {
     text-decoration: none !important;
 }
 
-.logotext {
-    color: rgb(255, 255, 255);
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: bold;
-    font-size: 35px;
-}
-
-.logotext1 {
-    font-family: monospace;
-    color: #ffffff;
-    font-size: 20px;
-}
-
-.logoimg2 {
-    width: 30px;
-    height: 30px;
-    filter: invert(100%);
-}
-
-.logoimg3 {
-    width: 35px;
-    height: 35px;
-    filter: invert(100%);
-}
-
-.logoButton {
-    margin: 0px;
-    padding: 0px;
-    transition: 0.15s;
-    box-sizing: border-box;
-    color: rgb(255, 255, 255);
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: bold;
-    font-size: 35px;
-}
-
-.logoButton:hover {
-    transform: scale(1.1);
-}
-
-.nav-icon {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-
-}
-
-.logoNavButton1 {
-    margin: 0px;
-    padding: 0px;
-    transition: 0.15s;
-    margin-right: 5vw;
-}
-
-.logoNavButton1:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-}
-
-.logoNavButton2 {
-    margin: 0px;
-    padding-left: 6px;
-    padding-right: 6px;
-    padding-top: 2px;
-    padding-bottom: 4px;
-    transition: 0.15s;
-    margin-right: 2vw;
-    border-style: solid;
-    border-color: #ffffff;
-    color: #ffffff;
-    border-radius: 35px;
-    border-width: 3px;
-    background-color: #ffffff00;
-}
-
-.account {
-    transition: 0.15s;
-}
-
-.account:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-}
-
-.logoNavButton2:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-}
-
-
-.navButton {
-    border: solid;
-    border-radius: 5px;
-    color: rgb(255, 255, 255);
-    font-size: 35px;
-    text-transform: uppercase;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.navButton:hover {
-    color: #bde7f5;
-}
-
 .backgroundNav {
-    background-image: url(../../public/images/вумен.jpg);
+    background-image: url(../../public/images/women.jpg);
     background-size: cover;
     background-position: bottom;
     height: 100vh;
     width: 100vw;
 }
 
-.backgroundNav2 {
+.backgroundNav3 {
     background-image: url(../../public/images/background-flower1.jpg);
     background-size: cover;
-    background-position: bottom;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
 }
 
-.tprntWhite {
-    text-align: right;
+.category {
     position: relative;
-    top: 66%;
-    padding-bottom: 2px;
-    padding-right: 20px;
-    background-color: rgb(255, 255, 255, 0.555);
 }
 
-.fPP {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+.category::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to top, #bae5f5, transparent);
+    z-index: 1;
 }
 
-.fPName {
-    font-size: 60px;
-    font-family: "N", Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: lighter;
-}
-
-.nameFirstPage {
-    display: flex;
-    flex-flow: column wrap;
-    padding-right: 1rem;
+.category::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to top, transparent, #bae5f5);
+    z-index: 1;
 }
 
 .fullScreenNav {
@@ -253,7 +113,7 @@ a {
         opacity: 1;
     }
 }
-
+/* 
 .navMenu {
     z-index: 9999;
     position: fixed;
@@ -282,15 +142,15 @@ a {
     font-weight: lighter;
     text-align: center;
     text-transform: uppercase;
-}
-
+} */
+/* 
 .services {
     background-color: #bde7f5;
     background-size: cover;
     height: 100%;
-}
+} */
 
-.cards {
+/* .cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -299,9 +159,9 @@ a {
     padding-top: 70px;
     padding-bottom: 70px;
     width: 100%;
-}
+} */
 
-.cards div h1 {
+/* .cards div h1 {
     background-color: rgba(245, 245, 245, 0.6);
     width: 100%;
     text-align: center;
@@ -325,7 +185,7 @@ a {
 .cards div:hover {
     transform: scale(1.1);
     opacity: 100%;
-}
+} */
 
 /* .btnServices {
     display: flex;
@@ -333,7 +193,7 @@ a {
     z-index: 1;
 } */
 
-.tablos {
+/* .tablos {
     background-color: #bde7f5;
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -350,27 +210,25 @@ a {
     text-align: center;
     padding: 5px;
     background: #ccccff;
-}
+    opacity: 78%;
+} */
 
-.Line {
+/* .Line {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 30px;
     font-weight: lighter;
     padding: 5px;
     border-bottom: 1px solid;
-    color: #a4eafc;
+    color: #a4eafc #1d283f;
+    
+    opacity: 78%;
 }
 
 .Line p {
-    padding-left: 3rem;
     color: #222222;
     margin-bottom: 10px;
     margin-top: 5px;
 }
-
-/* .Line:nth-child(odd) {
-    background: #e4f9fe;
-} */
 
 .Line:nth-child(even) {
     background: #fbfeff;
@@ -378,7 +236,7 @@ a {
 
 .Line:nth-child(odd) {
     background: #e0f5ff;
-}
+} */
 
 .map {
     width: 100%;
@@ -387,130 +245,7 @@ a {
     padding: 1rem;
     background-color: #c5f2fd;
 }
-
-[class*="copyrights-pane"] {
-    display: none !important;
-}
-
-.graph {
-    margin-top: 7%;
-    position: relative;
-    height: 85vh;
-    width: 60vw;
-    background-color: #e4f9fe83;
-    background-size: cover;
-    background-position: bottom;
-    border: #222222 solid 2px;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.image {
-    width: 100%;
-    height: 70%;
-    background-image: url(/../../public/images/example.png);
-    background-size: cover;
-    background-position: bottom;
-    border-bottom: #222222 solid 2px;
-}
-.image1 {
-    width: 100%;
-    height: 30%;
-    background-image: url(/../../public/images/vue-table.jpg);
-    background-size: cover;
-    background-position: bottom;
-}
-
-@media screen and (min-width: 1350px) {
-    .header-wrapper {
-        width: 1350px;
-        margin: 0 auto;
-    }
-    .wrapper {
-        width: 1140px;
-        margin: 0 auto;
-    }
-    .container {
-        width: 1350px;
-        margin: 0 auto;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .navMenuli {
-        margin-bottom: 10px;
-    }
-    .navButton {
-        font-size: 40px;
-    }
-}
-
-@media screen and (max-width: 659px) {
-    .fPName {
-        font-size: 50px;
-    }
-    .hello {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 1350px) and (min-height: 450px) {
-    .navMenuli {
-        margin-bottom: 10px;
-    }
-    .navButton {
-        font-size: 40px;
-    }
-}
-
-@media screen and (max-width: 768px) and (min-height: 450px) {
-    .navMenuli {
-        margin-bottom: 10px;
-    }
-    .navButton {
-        font-size: 35px;
-    }
-}
-
-@media screen and (max-width: 574px) {
-    .navMenuli {
-        margin-bottom: 10px;
-    }
-    .navButton {
-        font-size: 30px;
-    }
-    .fPName {
-        font-size: 45px;
-    }
-    .fPP {
-        font-size: 15px;
-    }
-}
-
-@media screen and (max-height: 546px) {
-    .fPP {
-        display: flex;
-        justify-content: end;
-    }
-    .fPAdress {
-        padding-right: 10px;
-    }
-}
-
-@media screen and (max-height: 450px) {
-    .navMenuli {
-        margin-bottom: 10px;
-    }
-    .navButton {
-        font-size: 30px;
-    }
-    .fPName {
-        font-size: 45px;
-    }
-    .fPP {
-        font-size: 15px;
-    }
-}
+/* 
 .test {
     margin-top: 5%;
 }
@@ -538,7 +273,6 @@ a {
 }
 .test9 {
     height: 100%;
-    /*color:#3b3b74;*/
     margin-top: 100px;
     margin-bottom: 30px;
 }
@@ -566,11 +300,5 @@ a {
 }
 .test17 {
     min-height: 100vh;
-}
-.backgroundNav3 {
-    background-image: url(/../../public/images/background-flower1.jpg);
-    background-size: cover;
-    height: 100%;
-
-}
-
+} 
+*/
