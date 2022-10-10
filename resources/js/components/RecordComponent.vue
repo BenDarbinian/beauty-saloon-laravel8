@@ -213,7 +213,8 @@ export default {
         selectedSerSumTime: function () {
             let result = 0;
             for (let checkedName of this.formData.checkedNames) {
-                result += this.services[checkedName - 1].time;
+                let service = this.services.filter((element) => (element.id == checkedName))
+                result += service[0].time;
             }
             return result;
         },

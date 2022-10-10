@@ -5970,15 +5970,26 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     },
     // расчет общего количества времени предоставления услуг из списка выбранных
     selectedSerSumTime: function selectedSerSumTime() {
+      var _this3 = this;
+
       var result = 0;
 
       var _iterator3 = _createForOfIteratorHelper(this.formData.checkedNames),
           _step3;
 
       try {
-        for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+        var _loop = function _loop() {
           var checkedName = _step3.value;
-          result += this.services[checkedName - 1].time;
+
+          var service = _this3.services.filter(function (element) {
+            return element.id == checkedName;
+          });
+
+          result += service[0].time;
+        };
+
+        for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+          _loop();
         }
       } catch (err) {
         _iterator3.e(err);
@@ -5999,22 +6010,22 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   // достаем данные из базы
   created: function created() {
-    var _this3 = this;
+    var _this4 = this;
 
     fetch("/api/services").then(function (response) {
       return response.json();
     }).then(function (services) {
-      _this3.services = services;
+      _this4.services = services;
     });
     fetch("/api/records").then(function (response) {
       return response.json();
     }).then(function (records) {
-      _this3.records = records.data;
+      _this4.records = records.data;
     });
     fetch("/api/categories").then(function (response) {
       return response.json();
     }).then(function (categories) {
-      _this3.categories = categories;
+      _this4.categories = categories;
     });
   }
 });
