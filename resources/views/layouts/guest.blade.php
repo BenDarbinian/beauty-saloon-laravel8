@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" href="images/letter-y.png" type="image/png">
-    <meta http-equiv="cache-control" content="must-revalidate">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
