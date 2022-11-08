@@ -6,11 +6,7 @@
                     <v-toolbar-title>Записи</v-toolbar-title>
                 </v-toolbar>
                 <v-sheet class="d-flex justify-center py-1 px-1">
-                    <v-chip-group
-                        mandatory
-                        v-model="checkedGuestAuth"
-                        active-class="deep-purple--text text--accent-4"
-                    >
+                    <v-chip-group mandatory v-model="checkedGuestAuth" active-class="deep-purple--text text--accent-4">
                         <v-chip key="1" id="1" value="1"> Гости </v-chip>
                         <v-chip key="2" id="2" value="2">
                             Авторизованные пользователи
@@ -19,126 +15,69 @@
                 </v-sheet>
                 <v-card-text v-show="checkedGuestAuth == 1">
                     <v-sheet class="d-flex justify-center">
-                        <v-chip-group
-                            mandatory
-                            v-model="checkedStatus"
-                            active-class="deep-purple--text text--accent-4"
-                        >
-                            <v-chip
-                                v-for="status in statuses"
-                                :key="status.id"
-                                :id="status.id"
-                                :value="status.id"
-                                >{{ status.name }}</v-chip
-                            >
+                        <v-chip-group mandatory v-model="checkedStatus" active-class="deep-purple--text text--accent-4">
+                            <v-chip v-for="status in statuses" :key="status.id" :id="status.id" :value="status.id">{{
+                                    status.name
+                            }}</v-chip>
                         </v-chip-group>
                     </v-sheet>
                     <div calss="d-flex" v-if="formData.guestRec != 0">
                         <v-card class="mx-auto" max-width="1024">
                             <v-toolbar flat color="deep-purple lighten-3" dark>
                                 <template class="d-flex">
-                                    <v-toolbar-title
-                                        >Выбор услуг</v-toolbar-title
-                                    >
-                                    <v-btn
-                                        class="ml-auto ma-1"
-                                        outlined
-                                        fab
-                                        x-small
-                                        color="danger"
-                                        v-on:click="closeBoard()"
-                                    >
+                                    <v-toolbar-title>Выбор услуг</v-toolbar-title>
+                                    <v-btn class="ml-auto ma-1" outlined fab x-small color="danger"
+                                        v-on:click="closeBoard()">
                                         <i class="fa-solid fa-xmark"></i>
                                     </v-btn>
                                 </template>
                             </v-toolbar>
                             <v-sheet class="d-flex justify-center py-1 px-1">
-                                <v-chip-group
-                                    mandatory
-                                    v-model="checkedCat"
-                                    active-class="deep-purple--text text--accent-4"
-                                >
-                                    <v-chip
-                                        v-for="category in categories"
-                                        :key="category.id"
-                                        :id="category.id"
-                                        :value="category.id"
-                                    >
+                                <v-chip-group mandatory v-model="checkedCat"
+                                    active-class="deep-purple--text text--accent-4">
+                                    <v-chip v-for="category in categories" :key="category.id" :id="category.id"
+                                        :value="category.id">
                                         {{ category.name }}
                                     </v-chip>
                                 </v-chip-group>
                             </v-sheet>
-                            <v-card-text
-                                v-for="category in categories"
-                                :key="category.id"
-                                v-if="checkedCat === category.id"
-                            >
+                            <v-card-text v-for="category in categories" :key="category.id"
+                                v-if="checkedCat === category.id">
                                 <h2 class="text-h6 mb-2">
                                     {{ category.name }}
                                 </h2>
 
-                                <v-chip-group
-                                    v-model="formData.checkedNames"
-                                    active-class="deep-purple--text text--accent-4"
-                                    column
-                                    multiple
-                                    max="5"
-                                >
-                                    <v-chip
-                                        v-for="service in services
-                                            .filter(
-                                                (services) =>
-                                                    services.category_id ==
-                                                    category.id
-                                            )
-                                            .sort(services.price)"
-                                        outlined
-                                        :key="service.id"
-                                        :id="service.id"
-                                        :value="service.id"
-                                    >
+                                <v-chip-group v-model="formData.checkedNames"
+                                    active-class="deep-purple--text text--accent-4" column multiple max="5">
+                                    <v-chip v-for="service in services
+                                    .filter(
+                                        (services) =>
+                                            services.category_id ==
+                                            category.id
+                                    )
+                                    .sort(services.price)" outlined :key="service.id" :id="service.id"
+                                        :value="service.id">
                                         {{ service.name }}
                                     </v-chip>
                                 </v-chip-group>
                                 <v-row justify="space-around">
                                     <v-col>
-                                        <v-date-picker
-                                            v-model="formData.date"
-                                            :min="mindate"
-                                            class="mx-auto test2"
-                                            max-width="600"
-                                            :max="maxdate"
-                                            :disabled="disDate()"
-                                            landscape
-                                            locale="ru-RU"
-                                            color="deep-purple lighten-3"
-                                        ></v-date-picker>
+                                        <v-date-picker v-model="formData.date" :min="mindate" class="mx-auto test2"
+                                            max-width="600" :max="maxdate" :disabled="disDate()" landscape
+                                            locale="ru-RU" color="deep-purple lighten-3"></v-date-picker>
                                     </v-col>
                                     <v-col>
-                                        <v-chip-group
-                                            class="test2 test3"
-                                            v-model="formData.time"
-                                            active-class="deep-purple--text text--accent-4"
-                                            column
-                                            mandatory
-                                        >
-                                            <v-chip
-                                                v-for="i in Timebuttons"
-                                                :key="i.slice(0, 5)"
-                                                :value="i.slice(0, 5)"
-                                                :disabled="disTime(i)"
-                                                >{{ i.slice(0, 5) }}
+                                        <v-chip-group class="test2 test3" v-model="formData.time"
+                                            active-class="deep-purple--text text--accent-4" column mandatory>
+                                            <v-chip v-for="i in Timebuttons" :key="i.slice(0, 5)" :value="i.slice(0, 5)"
+                                                :disabled="disTime(i)">{{ i.slice(0, 5) }}
                                             </v-chip>
                                         </v-chip-group>
                                     </v-col>
                                 </v-row>
                                 <div class="text-center">
-                                    <v-btn
-                                        class="ma-2"
-                                        :disabled="disRec()"
-                                        color="deep-purple--text text--accent-4"
-                                        @click="CreateRecord()"
-                                    >
+                                    <v-btn class="ma-2" :disabled="disRec()" color="deep-purple--text text--accent-4"
+                                        @click="CreateRecord()">
                                         Запись
                                     </v-btn>
                                 </div>
@@ -156,67 +95,40 @@
                             </tr>
                         </thead>
                         <tbody v-for="status in statuses">
-                            <template
-                                v-for="recordg in recordgs
-                                    .filter(
-                                        (recordgs) =>
-                                            recordgs.status_id == status.id
-                                    )
-                                    .reverse()"
-                            >
-                                <tr
-                                    v-if="
-                                        checkedStatus == status.id &&
-                                        status.id != 2 &&
-                                        status.id != 3
-                                    "
-                                >
+                            <template v-for="recordg in recordgs
+                            .filter(
+                                (recordgs) =>
+                                    recordgs.status_id == status.id
+                            )
+                            .reverse()">
+                                <tr v-if="
+                                    checkedStatus == status.id &&
+                                    status.id != 2 &&
+                                    status.id != 3
+                                ">
                                     <td></td>
                                     <td>{{ recordg.name }}</td>
                                     <td>{{ recordg.phone_number }}</td>
-                                    <td
-                                        :class="
-                                            statusColor(
-                                                recordg.status.bootColor
-                                            )
-                                        "
-                                    >
+                                    <td :class="
+                                        statusColor(
+                                            recordg.status.bootColor
+                                        )
+                                    ">
                                         {{ recordg.status.name }}
                                     </td>
-                                    <td
-                                        v-if="status.id == 1 || status.id == 2"
-                                        class="d-flex"
-                                    >
-                                        <v-btn
-                                            class="ma-1"
-                                            outlined
-                                            fab
-                                            x-small
-                                            color="primary"
-                                            :key="recordg.id"
-                                            :id="recordg.id"
-                                            v-on:click="
+                                    <td v-if="status.id == 1 || status.id == 2" class="d-flex">
+                                        <v-btn class="ma-1" outlined fab x-small color="primary" :key="recordg.id"
+                                            :id="recordg.id" v-on:click="
                                                 openBoard(
                                                     recordg.id,
                                                     recordg.name,
                                                     recordg.phone_number
                                                 )
-                                            "
-                                        >
-                                            <i
-                                                class="fa-solid fa-circle-check"
-                                            ></i>
+                                            ">
+                                            <i class="fa-solid fa-circle-check"></i>
                                         </v-btn>
-                                        <v-btn
-                                            class="ma-1"
-                                            outlined
-                                            fab
-                                            x-small
-                                            color="red"
-                                            :key="disKey(recordg.id)"
-                                            :id="recordg.id"
-                                            v-on:click="guestCencel(recordg.id)"
-                                        >
+                                        <v-btn class="ma-1" outlined fab x-small color="red" :key="disKey(recordg.id)"
+                                            :id="recordg.id" v-on:click="guestCencel(recordg.id)">
                                             <i class="fa-solid fa-xmark"></i>
                                         </v-btn>
                                     </td>
@@ -240,22 +152,16 @@
                             </tr>
                         </thead>
                         <tbody v-for="status in statuses">
-                            <template
-                                v-for="record in recordsstatus
-                                    .filter(
-                                        (recordsstatus) =>
-                                            recordsstatus.status_id ==
-                                                status.id &&
-                                            recordsstatus.user_id == null
-                                    )
-                                    .reverse()"
-                            >
-                                <tr
-                                    data-toggle="collapse"
-                                    :data-target="record.id"
-                                    class="accordion-toggle"
-                                    v-if="checkedStatus == status.id"
-                                >
+                            <template v-for="record in recordsstatus
+                            .filter(
+                                (recordsstatus) =>
+                                    recordsstatus.status_id ==
+                                    status.id &&
+                                    recordsstatus.user_id == null
+                            )
+                            .reverse()">
+                                <tr data-toggle="collapse" :data-target="record.id" class="accordion-toggle"
+                                    v-if="checkedStatus == status.id">
                                     <td></td>
                                     <td>{{ record.name }}</td>
                                     <td>{{ record.phone_number }}</td>
@@ -263,80 +169,44 @@
                                     <td>{{ record.time }}</td>
                                     <td>{{ record.sPrice }} рублей</td>
                                     <td>{{ record.sTime }} минут</td>
-                                    <td
-                                        :class="
-                                            statusColor(record.status.bootColor)
-                                        "
-                                    >
+                                    <td :class="
+                                        statusColor(record.status.bootColor)
+                                    ">
                                         {{ record.status.name }}
                                     </td>
-                                    <td
-                                        v-if="status.id == 1 || status.id == 2"
-                                        class="d-flex"
-                                    >
+                                    <td v-if="status.id == 1 || status.id == 2" class="d-flex">
                                         <template v-if="status.id == 1">
-                                            <v-btn
-                                                class="ma-1"
-                                                outlined
-                                                fab
-                                                x-small
-                                                color="blue"
-                                                value="Подтверждена"
-                                                :key="record.id"
-                                                :id="record.id"
-                                                v-on:click="
+                                            <v-btn class="ma-1" outlined fab x-small color="blue" value="Подтверждена"
+                                                :key="record.id" :id="record.id" v-on:click="
                                                     recording(
                                                         2,
                                                         'Подтверждена',
                                                         record.id
                                                     )
-                                                "
-                                            >
-                                                <i
-                                                    class="fa-solid fa-circle-check"
-                                                ></i>
+                                                ">
+                                                <i class="fa-solid fa-circle-check"></i>
                                             </v-btn>
                                         </template>
                                         <template v-if="status.id == 2">
-                                            <v-btn
-                                                class="ma-1"
-                                                outlined
-                                                fab
-                                                x-small
-                                                color="green"
-                                                value="Проведена"
-                                                :key="record.id"
-                                                :id="record.id"
-                                                v-on:click="
+                                            <v-btn class="ma-1" outlined fab x-small color="green" value="Проведена"
+                                                :key="record.id" :id="record.id" v-on:click="
                                                     recording(
                                                         3,
                                                         'Проведена',
                                                         record.id
                                                     )
-                                                "
-                                            >
-                                                <i
-                                                    class="fa-solid fa-circle-check"
-                                                ></i>
+                                                ">
+                                                <i class="fa-solid fa-circle-check"></i>
                                             </v-btn>
                                         </template>
-                                        <v-btn
-                                            class="ma-1"
-                                            outlined
-                                            fab
-                                            x-small
-                                            color="red"
-                                            value="Отменена"
-                                            :key="disKey(record.id)"
-                                            :id="record.id"
-                                            v-on:click="
+                                        <v-btn class="ma-1" outlined fab x-small color="red" value="Отменена"
+                                            :key="disKey(record.id)" :id="record.id" v-on:click="
                                                 recording(
                                                     4,
                                                     'Отменена',
                                                     record.id
                                                 )
-                                            "
-                                        >
+                                            ">
                                             <i class="fa-solid fa-xmark"></i>
                                         </v-btn>
                                     </td>
@@ -347,18 +217,10 @@
                 </v-card-text>
                 <v-card-text v-if="checkedGuestAuth == 2">
                     <v-sheet class="d-flex justify-center">
-                        <v-chip-group
-                            mandatory
-                            v-model="checkedStatus"
-                            active-class="deep-purple--text text--accent-4"
-                        >
-                            <v-chip
-                                v-for="status in statuses"
-                                :key="status.id"
-                                :id="status.id"
-                                :value="status.id"
-                                >{{ status.name }}</v-chip
-                            >
+                        <v-chip-group mandatory v-model="checkedStatus" active-class="deep-purple--text text--accent-4">
+                            <v-chip v-for="status in statuses" :key="status.id" :id="status.id" :value="status.id">{{
+                                    status.name
+                            }}</v-chip>
                         </v-chip-group>
                     </v-sheet>
                     <table class="table table-condensed table-striped test15">
@@ -376,22 +238,16 @@
                             </tr>
                         </thead>
                         <tbody v-for="status in statuses">
-                            <template
-                                v-for="record in recordsstatus
-                                    .filter(
-                                        (recordsstatus) =>
-                                            (recordsstatus.status_id ==
-                                                status.id &&
-                                            recordsstatus.user_id != null)
-                                    )
-                                    .reverse()"
-                            >
-                                <tr
-                                    data-toggle="collapse"
-                                    :data-target="record.id"
-                                    class="accordion-toggle"
-                                    v-if="checkedStatus == status.id"
-                                >
+                            <template v-for="record in recordsstatus
+                            .filter(
+                                (recordsstatus) =>
+                                (recordsstatus.status_id ==
+                                    status.id &&
+                                    recordsstatus.user_id != null)
+                            )
+                            .reverse()">
+                                <tr data-toggle="collapse" :data-target="record.id" class="accordion-toggle"
+                                    v-if="checkedStatus == status.id">
                                     <td></td>
                                     <td>{{ record.name }}</td>
                                     <td>{{ record.phone_number }}</td>
@@ -399,80 +255,44 @@
                                     <td>{{ record.time }}</td>
                                     <td>{{ record.sPrice }} рублей</td>
                                     <td>{{ record.sTime }} минут</td>
-                                    <td
-                                        :class="
-                                            statusColor(record.status.bootColor)
-                                        "
-                                    >
+                                    <td :class="
+                                        statusColor(record.status.bootColor)
+                                    ">
                                         {{ record.status.name }}
                                     </td>
-                                    <td
-                                        v-if="status.id == 1 || status.id == 2"
-                                        class="d-flex"
-                                    >
+                                    <td v-if="status.id == 1 || status.id == 2" class="d-flex">
                                         <template v-if="status.id == 1">
-                                            <v-btn
-                                                class="ma-1"
-                                                outlined
-                                                fab
-                                                x-small
-                                                color="blue"
-                                                value="Подтверждена"
-                                                :key="record.id"
-                                                :id="record.id"
-                                                v-on:click="
+                                            <v-btn class="ma-1" outlined fab x-small color="blue" value="Подтверждена"
+                                                :key="record.id" :id="record.id" v-on:click="
                                                     recording(
                                                         2,
                                                         'Подтверждена',
                                                         record.id
                                                     )
-                                                "
-                                            >
-                                                <i
-                                                    class="fa-solid fa-circle-check"
-                                                ></i>
+                                                ">
+                                                <i class="fa-solid fa-circle-check"></i>
                                             </v-btn>
                                         </template>
                                         <template v-if="status.id == 2">
-                                            <v-btn
-                                                class="ma-1"
-                                                outlined
-                                                fab
-                                                x-small
-                                                color="green"
-                                                value="Проведена"
-                                                :key="record.id"
-                                                :id="record.id"
-                                                v-on:click="
+                                            <v-btn class="ma-1" outlined fab x-small color="green" value="Проведена"
+                                                :key="record.id" :id="record.id" v-on:click="
                                                     recording(
                                                         3,
                                                         'Проведена',
                                                         record.id
                                                     )
-                                                "
-                                            >
-                                                <i
-                                                    class="fa-solid fa-circle-check"
-                                                ></i>
+                                                ">
+                                                <i class="fa-solid fa-circle-check"></i>
                                             </v-btn>
                                         </template>
-                                        <v-btn
-                                            class="ma-1"
-                                            outlined
-                                            fab
-                                            x-small
-                                            color="red"
-                                            value="Отменена"
-                                            :key="disKey(record.id)"
-                                            :id="record.id"
-                                            v-on:click="
-                                                recording(
-                                                    4,
-                                                    'Отменена',
-                                                    record.id
-                                                )
-                                            "
-                                        >
+                                        <v-btn class="ma-1" outlined fab x-small color="red" value="Отменена"
+                                            :key="disKey(record.id)" :id="record.id" v-on:click="
+    recording(
+        4,
+        'Отменена',
+        record.id
+    )
+                                            ">
                                             <i class="fa-solid fa-xmark"></i>
                                         </v-btn>
                                     </td>
@@ -486,7 +306,8 @@
     </v-app>
 </template>
 <script>
-// import axios from "axios";
+
+import axios from "axios";
 export default {
     data() {
         return {
@@ -648,7 +469,11 @@ export default {
                                     "success"
                                 );
                                 setTimeout(function () {
-                                    location.reload();
+                                    fetch("/api/recordsstatus")
+                                        .then((response) => response.json())
+                                        .then((recordsstatus) => {
+                                            this.recordsstatus = recordsstatus;
+                                        });
                                 }, 1000);
                             });
                     }

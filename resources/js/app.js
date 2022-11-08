@@ -31,6 +31,8 @@ Vue.use(VueSweetalert2);
 Vue.component('record-component', require('./components/RecordComponent.vue').default);
 Vue.component('admin-component', require('./components/AdminComponent.vue').default);
 Vue.component('test-component', require('./components/TestComponent.vue').default);
+Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('account-component', require('./components/AccountComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

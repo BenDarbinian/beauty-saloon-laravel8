@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\RecordStatusController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\ServiceHistoryController;
 use App\Http\Controllers\Api\StatusController;
+use App\Http\Controllers\UserRecordController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,8 @@ Route::post('records', [RecordController::class, 'store']);
 
 Route::get('recordsstatus', [RecordStatusController::class, 'index']);
 Route::post('recordsstatus', [RecordStatusController::class, 'status']);
+
+Route::get('userrecords', [UserRecordController::class, 'index']);
 
 Route::get('services', [ServiceController::class, 'index']);
 

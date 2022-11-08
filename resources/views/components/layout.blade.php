@@ -34,7 +34,7 @@
             </div>
         </nav>
     </header> -->
-    <header class="fixed z-10 drop-shadow-lg w-full h-16 bg-[#6b6bb3] flex items-center">
+    <header class="fixed top-0 left-0 z-10 drop-shadow-lg w-full h-16 bg-[#6b6bb3] flex items-center">
         <nav class="px-2 sm:px-2 md:px-4 lg:px-8 xl:px-32 w-full flex justify-between items-center">
             <a href="/" class="font-sans font-bold text-4xl uppercase text-white transition ease hover:scale-110 duration-200">Yasmin</a>
             <div class="flex justify-end">
@@ -97,7 +97,7 @@
                 @endauth
             </ul>
         </div>
-        <div class="test7">
+        <div class="h-full">
             {{$slot}}
         </div>
 
